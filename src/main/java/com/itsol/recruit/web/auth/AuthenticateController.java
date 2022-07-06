@@ -7,8 +7,13 @@ import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
 import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
+import com.itsol.recruit.service.impl.EmailServiceImpl;
+import com.itsol.recruit.service.impl.OTPServiceImpl;
+import com.itsol.recruit.service.mapper.EmailService;
+import com.itsol.recruit.service.mapper.OTPService;
 import com.itsol.recruit.web.vm.LoginVM;
 import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +31,8 @@ import java.util.Collections;
 @Api(tags = "Auth")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class AuthenticateController {
-
+    @Autowired
+    EmailServiceImpl emailService;
     private final AuthenticateService authenticateService;
 
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
@@ -34,12 +40,14 @@ public class AuthenticateController {
     private final UserService userService;
 
     private final TokenProvider tokenProvider;
+    private final OTPService otpService;
 
-    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider) {
+    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService) {
         this.authenticateService = authenticateService;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userService = userService;
         this.tokenProvider = tokenProvider;
+        this.otpService = otpService;
     }
 
     @PostMapping("/signup")
@@ -70,4 +78,8 @@ public class AuthenticateController {
 
     }
 
+    @PostMapping("/send-otp")
+    public ResponseEntity<String> sendOtpEmail(@RequestParam String email){
+        return ResponseEntity.ok().body(otpService.sendOTP(email));
+    }
 }

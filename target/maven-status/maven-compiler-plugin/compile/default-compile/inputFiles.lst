@@ -6,12 +6,15 @@ D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\UserMap
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\SimpleCORSFilter.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\SecurityConfig.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\EntityMapper.java
+D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\OTP.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\User.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\SetupDataLoader.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\AuthenticateServiceImpl.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\UserServiceImpl.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\AuthoritiesConstants.java
+D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\OTPServiceImpl.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\core\Constants.java
+D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\OTPRepositoty.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\UserController.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\SecurityUtils.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\RecruitApplication.java
@@ -20,8 +23,11 @@ D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\UserReposit
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\LoginVM.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Role.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\core\ApiResponseEntity.java
+D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\EmailServiceImpl.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\RoleRepository.java
+D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\EmailService.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\jwt\JWTTokenResponse.java
+D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\OTPService.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\WebConfig.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\repoext\UserRepositoryExt.java
 D:\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\UserNotActivatedException.java
