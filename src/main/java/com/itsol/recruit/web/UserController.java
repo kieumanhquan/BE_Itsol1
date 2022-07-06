@@ -31,6 +31,6 @@ public class UserController {
     @GetMapping(value = "/active_account/{id}")
     public ResponseEntity<String> activeAccount(@PathVariable("id") Long id){
         userService.activeAccount(id);
-        return ResponseEntity.ok().body("ok");
+        return ResponseEntity.ok().body("active success!!!");
     }
 }

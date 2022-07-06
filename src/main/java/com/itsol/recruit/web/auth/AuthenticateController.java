@@ -44,7 +44,7 @@ public class AuthenticateController {
 
     @PostMapping("/signup")
     public ResponseEntity<User> signup(@Valid @RequestBody UserDTO dto) {
-        System.out.println("ok");
+        System.out.println("active success!!!");
         return ResponseEntity.ok().body(authenticateService.signup(dto));
     }
 
