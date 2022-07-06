@@ -44,8 +44,10 @@ public class AuthenticateController {
 
     @PostMapping("/signup")
     public ResponseEntity<User> signup(@Valid @RequestBody UserDTO dto) {
+        System.out.println("ok");
         return ResponseEntity.ok().body(authenticateService.signup(dto));
     }
+
 
     /*
     Login api

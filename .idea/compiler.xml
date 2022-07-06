@@ -10,9 +10,13 @@
         <module name="recruit" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="BE_Itsol1" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="BE_Itsol1" options="-parameters" />
       <module name="recruit" options="-parameters" />
     </option>
   </component>
