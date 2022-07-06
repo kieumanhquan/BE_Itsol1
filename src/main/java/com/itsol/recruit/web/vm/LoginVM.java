@@ -14,15 +14,24 @@ import javax.validation.constraints.Size;
 public class LoginVM {
     //    @Scha(description = "User name of the User.", example = Constants.Api.FieldExample.USER_NAME, required = true)
     @NotNull(message = Constants.ValidationMessage.FIELD_IS_REQUIRED)
-    @Pattern(regexp = "^[\\w\\d]{5,20}$", message = Constants.ValidationMessage.INVALID_USER_NAME)
+    /*@Pattern(regexp = "^[\\w\\d]{5,20}$", message = Constants.ValidationMessage.INVALID_USER_NAME)*/
     private String userName;
 
     //    @Schema(description = "Password of the User.", example = Constants.Api.FieldExample.PASSWORD, required = true)
     @NotNull
-    @Size(min = 6, max = 32, message = Constants.ValidationMessage.INVALID_SIZE_VALUE)
-    @Pattern(regexp = "^[\\w\\d$&+,:;=?@#|'<>.^*()%!-]*", message = Constants.ValidationMessage.INVALID_PASSWORD)
+   /* @Size(min = 6, max = 32, message = Constants.ValidationMessage.INVALID_SIZE_VALUE)
+    @Pattern(regexp = "^[\\w\\d$&+,:;=?@#|'<>.^*()%!-]*", message = Constants.ValidationMessage.INVALID_PASSWORD)*/
     private String password;
 
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean rememberMe = true;
+
+    @Override
+    public String toString() {
+        return "LoginVM{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", rememberMe=" + rememberMe +
+                '}';
+    }
 }
