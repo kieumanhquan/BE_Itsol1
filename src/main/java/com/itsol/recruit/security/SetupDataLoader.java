@@ -54,8 +54,24 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
             userRepository.save(user);
             alreadySetup = true;
         }
+        if (userRepository.findByUserName("user01") == null) {
+            Set<Role> userRole = roleRepository.findByCode("ROLE_USER");
+            User user = new User();
+            user.setUserName("user01");
+            user.setName("user01");
+            user.setEmail("user@gmail.com");
+            user.setPhoneNumber("0388888888");
+            user.setBirthDay(new Date(1999 - 04 - 29));
+            user.setPassword(passwordEncoder.encode("123456"));
+            user.setActive(true);
+            user.setDelete(false);
+            user.setRoles(userRole);
+            userRepository.save(user);
+            alreadySetup = true;
+        }
         else{
             alreadySetup = true;
         }
+
     }
 }
