@@ -37,13 +37,15 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
         <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -78,6 +80,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;c5a5adb4becbec9d63074dcb70a2fa03&quot;
   }
 }</component>
@@ -105,6 +108,14 @@
       <workItem from="1656926468218" duration="6070000" />
       <workItem from="1656942683910" duration="6138000" />
       <workItem from="1656985585565" duration="553000" />
+      <workItem from="1656844429374" duration="1136000" />
+      <workItem from="1656899307974" duration="6367000" />
+      <workItem from="1656910780729" duration="2172000" />
+      <workItem from="1656916846695" duration="3249000" />
+      <workItem from="1657011573185" duration="1277000" />
+      <workItem from="1657037373936" duration="277000" />
+      <workItem from="1657064669115" duration="976000" />
+      <workItem from="1657071562023" duration="3636000" />
     </task>
     <servers />
   </component>
