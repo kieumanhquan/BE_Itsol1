@@ -41,10 +41,10 @@ public class OTPServiceImpl implements OTPService {
                 otpRepository.save(otp);
             String emails = emailServiceImpl.buildOtpEmail(user.getName(), otp.getCode());
             emailServiceImpl.sendEmail(user.getEmail(), emails);
-            return "Gửi mã OTP đến mail thành công";
+            return "success";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Gửi mail không thành công";
+            return "fail";
         }
 
     }

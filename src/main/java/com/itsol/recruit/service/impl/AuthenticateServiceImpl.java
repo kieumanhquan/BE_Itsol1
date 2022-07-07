@@ -68,18 +68,29 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         }
     }
 
+
     @Override
-    public String changePassword(String code, UserDTO userDto) {
-        String message = null;
+    public String changePassword(String code,UserDTO userDto) {
+        String message;
         User user = userRepository.findUserByEmail(userDto.getEmail());
         if (user != null) {
-            OTP otp = otpRepository.findByUser(user);
-            if (otp.expired()) {
-                message = "mã OTP đã hết hạn";
-            } else if (otp.getCode().equals(code)) {
-                user.setPassword(code);
+            OTP optdb = otpRepository.findByUser(user);
+            if (optdb.expired())
+                message= "Mã otp đã hết hạn";
+            else if (optdb.getCode().equals(code)) {
+                user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+                userRepository.save(user);
+                message="Đổi mật khẩu thành công";
+            }
+            else{
+                message="Mã otp không chính xác";
             }
         }
+        else {
+            message="Không thể đổi mật khẩu";
+        }
         return message;
+
+
     }
 }

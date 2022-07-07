@@ -3,6 +3,7 @@ package com.itsol.recruit.web.auth;
 import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.dto.UserDTO;
 import com.itsol.recruit.entity.User;
+import com.itsol.recruit.repository.OTPRepository;
 import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
 import com.itsol.recruit.service.AuthenticateService;
@@ -21,6 +22,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -41,13 +43,18 @@ public class AuthenticateController {
 
     private final TokenProvider tokenProvider;
     private final OTPService otpService;
+    public final OTPRepository otpRepository;
 
-    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService) {
+    private final PasswordEncoder passwordEncoder;
+
+    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService, OTPRepository otpRepository, PasswordEncoder passwordEncoder) {
         this.authenticateService = authenticateService;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userService = userService;
         this.tokenProvider = tokenProvider;
         this.otpService = otpService;
+        this.otpRepository = otpRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @PostMapping("/signup")
@@ -80,7 +87,11 @@ public class AuthenticateController {
     }
 
     @PostMapping("/send-otp")
-    public ResponseEntity<String> sendOtpEmail(@RequestParam String email){
-        return ResponseEntity.ok().body(otpService.sendOTP(email));
+    public ResponseEntity<Object> sendOtpEmail(@RequestParam String email){
+        return ResponseEntity.ok().body(Collections.singletonMap("message",otpService.sendOTP(email)));
+    }
+    @PostMapping("/change-password")
+    public  ResponseEntity<Object> changePassword(@RequestParam String code,@Valid @RequestBody UserDTO userDTO){
+        return ResponseEntity.ok().body(Collections.singletonMap("message",authenticateService.changePassword(code,userDTO)));
     }
 }
