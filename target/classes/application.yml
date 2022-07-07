@@ -11,8 +11,20 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database-platform: org.hibernate.dialect.OracleDialect
+
+  mail:
+    host: smtp.gmail.com
+    username: locdx1102@gmail.com
+    password: gjxljjdprhtotfdj
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 application:
   security:
