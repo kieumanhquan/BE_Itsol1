@@ -59,6 +59,12 @@ public class UserServiceImpl implements UserService {
     public User findUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
+
+    @Override
+    public User findUserByPhone(String phone) {
+        return userRepository.findUserByPhoneNumber(phone);
+    }
+
     @Override
     public void sendConfirmUserRegistrationViaEmail(String email) {
         eventPublisher.publishEvent(new OnSendRegistrationUserConfirmViaEmailEvent(email));
@@ -66,9 +72,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void activeAccount(Long id) {
+
         User user = userRepository.getById(id);
         user.setActive(true);
         userRepository.save(user);
+
     }
 
 

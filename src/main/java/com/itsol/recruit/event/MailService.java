@@ -22,7 +22,7 @@ public class MailService implements IMailService{
     public void sendRegistrationUserConfirm(String email) {
         User user = userService.findUserByEmail(email);
 
-        String confirmationUrl = "http://localhost:9090/api/public/active_account/" + user.getId();
+        String confirmationUrl = "http://localhost:4200/public/active_account/" + user.getId();
 
         String subject = "Account registration confirmation.";
         String content = "Please click on the link below to activate account \n"

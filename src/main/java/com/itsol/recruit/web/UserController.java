@@ -3,8 +3,11 @@ package com.itsol.recruit.web;
 import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.service.UserService;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -29,8 +32,14 @@ public class UserController {
         return  ResponseEntity.ok().body( userService.findById(id));
     }
     @GetMapping(value = "/active_account/{id}")
-    public ResponseEntity<String> activeAccount(@PathVariable("id") Long id){
-        userService.activeAccount(id);
-        return ResponseEntity.ok().body("active success!!!");
+    public ResponseEntity<?> activeAccount(@PathVariable("id") Long id){
+        try{
+            userService.activeAccount(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND) ;
+        }
+
     }
 }

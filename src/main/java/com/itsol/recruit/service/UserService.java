@@ -16,6 +16,7 @@ public interface UserService {
     public boolean isExistedUserByEmail(String Email);
 
     public User findUserByEmail(String email);
+    public User findUserByPhone(String phone);
 
     void sendConfirmUserRegistrationViaEmail(String email);
 
