@@ -1,7 +1,6 @@
 package com.itsol.recruit.service.impl;
 
 import com.itsol.recruit.entity.User;
-import com.itsol.recruit.event.OnSendRegistrationUserConfirmViaEmailEvent;
 import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,21 +38,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUserName(userName);
     }
 
-    @Override
-    public boolean isExistedUser(String userName) {
-        if (userRepository.findByUserName(userName) != null) {
-            return true;
-        }
-        return false;
-    }
 
-    @Override
-    public boolean isExistedUserByEmail(String Email) {
-        if (userRepository.findByEmail(Email).isPresent()) {
-            return true;
-        }
-        return false;
-    }
+
 
     @Override
     public User findUserByEmail(String email) {
@@ -65,10 +51,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findUserByPhoneNumber(phone);
     }
 
-    @Override
-    public void sendConfirmUserRegistrationViaEmail(String email) {
-        eventPublisher.publishEvent(new OnSendRegistrationUserConfirmViaEmailEvent(email));
-    }
+
 
     @Override
     public void activeAccount(Long id) {

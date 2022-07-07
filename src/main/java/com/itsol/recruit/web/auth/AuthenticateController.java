@@ -2,6 +2,7 @@ package com.itsol.recruit.web.auth;
 
 import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.dto.UserDTO;
+import com.itsol.recruit.service.email.EmailService;
 import com.itsol.recruit.entity.Role;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.repository.RoleRepository;
@@ -38,16 +39,17 @@ public class AuthenticateController {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
     private final UserService userService;
-
+    private final EmailService emailService;
     private final TokenProvider tokenProvider;
     public final RoleRepository roleRepository;
     public final UserMapper userMapper;
     public final UserRepository userRepository;
 
-    public AuthenticateController( AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, RoleRepository roleRepository,UserMapper userMapper,UserRepository userRepository) {
+    public AuthenticateController(AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, EmailService emailService, TokenProvider tokenProvider, RoleRepository roleRepository, UserMapper userMapper, UserRepository userRepository) {
 //        this.authenticateService = authenticateService;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userService = userService;
+        this.emailService = emailService;
         this.tokenProvider = tokenProvider;
         this.roleRepository = roleRepository;
         this.userMapper = userMapper;
@@ -81,7 +83,10 @@ public class AuthenticateController {
             String enCryptPassword = passwordEncoder.encode(dto.getPassword());
             user.setPassword(enCryptPassword);
             userRepository.save(user);
-            userService.sendConfirmUserRegistrationViaEmail(user.getEmail());
+//            userService.sendConfirmUserRegistrationViaEmail(user.getEmail());
+            String url = "http://localhost:4200/public/active_account/" + user.getId();
+            String urlLink = emailService.buildActiveLink(url);
+            emailService.sendEmail(user.getEmail(),urlLink);
             return ResponseEntity.ok().body(HttpStatus.OK);
     }
 
