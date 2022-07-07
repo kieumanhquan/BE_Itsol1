@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Collections;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = Constants.Api.Path.AUTH)
@@ -75,8 +76,11 @@ public class AuthenticateController {
     }
 
     @PostMapping("/send-otp")
-    public ResponseEntity<String> sendOtpEmail(@RequestParam String email){
+    public ResponseEntity<String> sendOtpEmail(@RequestParam String email) {
         return ResponseEntity.ok().body(otpService.sendOTP(email));
     }
-
+    @PostMapping("/change-password")
+    public ResponseEntity<Object> changePassword(@RequestParam String code, @Valid @RequestBody UserDTO userDTO) {
+        return ResponseEntity.ok().body(Collections.singletonMap("message",authenticateService.forgotPassword(code,userDTO)));
+    }
 }
