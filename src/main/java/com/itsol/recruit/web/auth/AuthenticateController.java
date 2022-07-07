@@ -35,6 +35,8 @@ public class AuthenticateController {
 
     private final TokenProvider tokenProvider;
 
+
+
     public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider) {
         this.authenticateService = authenticateService;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
@@ -54,6 +56,7 @@ public class AuthenticateController {
     public ResponseEntity<?> authenticateAdmin(@Valid @RequestBody LoginVM loginVM) {
 //		Tạo chuỗi authentication từ username và password (object LoginRequest
 //		- file này chỉ là 1 class bình thường, chứa 2 trường username và password)
+
         UsernamePasswordAuthenticationToken authenticationString = new UsernamePasswordAuthenticationToken(
                 loginVM.getUserName(),
                 loginVM.getPassword()
