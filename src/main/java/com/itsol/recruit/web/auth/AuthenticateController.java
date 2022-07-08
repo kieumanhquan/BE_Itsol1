@@ -12,6 +12,7 @@ import com.itsol.recruit.security.jwt.TokenProvider;
 //import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
 import com.itsol.recruit.service.mapper.UserMapper;
+import com.itsol.recruit.service.mapper.OTPService;
 import com.itsol.recruit.web.vm.LoginVM;
 import io.swagger.annotations.Api;
 import org.springframework.http.HttpHeaders;
@@ -44,16 +45,17 @@ public class AuthenticateController {
     public final RoleRepository roleRepository;
     public final UserMapper userMapper;
     public final UserRepository userRepository;
+    private final OTPService otpService;
 
-    public AuthenticateController(AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, EmailService emailService, TokenProvider tokenProvider, RoleRepository roleRepository, UserMapper userMapper, UserRepository userRepository) {
-//        this.authenticateService = authenticateService;
+    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService) {
+        this.authenticateService = authenticateService;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userService = userService;
         this.emailService = emailService;
-        this.tokenProvider = tokenProvider;
         this.roleRepository = roleRepository;
         this.userMapper = userMapper;
         this.userRepository = userRepository;
+        this.otpService = otpService;
     }
 
     @PostMapping("/signup")
@@ -111,6 +113,11 @@ public class AuthenticateController {
 //        User userLogin = userService.findUserByUserName(adminLoginVM.getUserName());
 //        return ResponseEntity.ok().body(new JWTTokenResponse(jwt, userLogin.getUserName())); //Trả về chuỗi jwt(authentication string)
 
+    }
+
+    @PostMapping("/send-otp")
+    public ResponseEntity<String> sendOtpEmail(@RequestParam String email){
+        return ResponseEntity.ok().body(otpService.sendOTP(email));
     }
 
 }

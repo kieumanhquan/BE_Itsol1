@@ -38,6 +38,31 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUserName(userName);
     }
 
+    @Override
+    public boolean isExistedUser(String userName) {
+        return false;
+    }
+
+    @Override
+    public boolean isExistedUserByEmail(String Email) {
+        return false;
+    }
+
+    @Override
+    public User findUserByEmail(String email) {
+        return null;
+    }
+
+    @Override
+    public void sendConfirmUserRegistrationViaEmail(String email) {
+
+    }
+
+    @Override
+    public void activeAccount(Long id) {
+
+    }
+
 
 
 
