@@ -11,6 +11,7 @@ import com.itsol.recruit.repository.RoleRepository;
 import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.mapper.UserMapper;
+import com.itsol.recruit.web.vm.ChangePassVM;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -70,27 +71,31 @@ public class AuthenticateServiceImpl implements AuthenticateService {
 
 
     @Override
-    public String changePassword(String code,UserDTO userDto) {
-        String message;
-        User user = userRepository.findUserByEmail(userDto.getEmail());
-        if (user != null) {
+    public String changePassword(ChangePassVM changePassVM) {
+        String notfound = "notfound";
+        String success = "success";
+        String expired = "exprired";
+        String fail = "fail";
+        User user = userRepository.findUserByEmail(changePassVM.getEmail());
+        if (!changePassVM.getPassword().matches("(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>\"'\\;:{\\}\\[\\]\\|\\+\\-\\=\\_\\)\\(\\)\\`\\/\\\\\\]])[A-Za-z0-9d$@].{7,}")) {
+            return notfound;
+        }
+        if (user == null) {
+            return expired;
+        } else {
             OTP optdb = otpRepository.findByUser(user);
-            if (optdb.expired())
-                message= "Mã otp đã hết hạn";
-            else if (optdb.getCode().equals(code)) {
-                user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+            if (optdb.expired()) {
+                return expired;
+            } else if (!optdb.getCode().equals(changePassVM.getCode())) {
+                return fail;
+            } else if (optdb.getCode().equals(changePassVM.getCode())) {
+                user.setPassword(passwordEncoder.encode(changePassVM.getPassword()));
                 userRepository.save(user);
-                message="Đổi mật khẩu thành công";
-            }
-            else{
-                message="Mã otp không chính xác";
+                return success;
+            } else {
+                return expired;
             }
         }
-        else {
-            message="Không thể đổi mật khẩu";
-        }
-        return message;
-
 
     }
 }

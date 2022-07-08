@@ -49,9 +49,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
             user.setBirthDay(new Date(1999 - 04 - 29));
             user.setPassword(passwordEncoder.encode("admin1"));*/
 
-            user.setUserName("user");
-            user.setName("user");
-            user.setEmail("locdinh100@gmail.com");
+            user.setUserName("admin");
+            user.setName("admin");
+            user.setEmail("loc119865@nuce.edu.vn");
             user.setPhoneNumber("0388887888");
             user.setBirthDay(new Date(1999 - 04 - 29));
             user.setPassword(passwordEncoder.encode("admin1"));

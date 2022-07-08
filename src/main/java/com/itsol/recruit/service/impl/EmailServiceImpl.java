@@ -21,7 +21,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public void sendEmail(String to, String email) {
+    public boolean sendEmail(String to, String email) {
         try {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, "utf-8");
@@ -30,10 +30,10 @@ public class EmailServiceImpl implements EmailService {
             mimeMessageHelper.setText(email, true);
             mimeMessageHelper.setSubject("Confirm OTP");
             javaMailSender.send(mimeMessage);
-
+            return true;
         } catch (MessagingException e) {
             e.printStackTrace();
-            throw new IllegalStateException("failed to send email");
+            return false;
         }
     }
 

@@ -25,27 +25,25 @@ public class OTPServiceImpl implements OTPService {
 
     @Override
     public String sendOTP(String email) {
-        try {
-            User user = userRepository.findUserByEmail(email);
-            if (user == null) {
-                return "Không tìm thấy email";
-            }
-
-            OTP otp = new OTP(user);
-            OTP oldOTP = otpRepository.findByUser(user);
-            if (oldOTP != null) {
-                oldOTP.setCode(otp.getCode());
-                oldOTP.setIssueAt(otp.getIssueAt());
-                otpRepository.save(oldOTP);
-            } else
-                otpRepository.save(otp);
-            String emails = emailServiceImpl.buildOtpEmail(user.getName(), otp.getCode());
-            emailServiceImpl.sendEmail(user.getEmail(), emails);
-            return "success";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "fail";
+        String fail = "notfound";
+        String success = "success";
+        User user = userRepository.findUserByEmail(email);
+        if (user == null) {
+            return fail;
         }
-
+        OTP otp=new OTP(user);
+        OTP oldOTP=otpRepository.findByUser(user);
+        if(oldOTP!=null){
+            oldOTP.setCode(otp.getCode());
+            oldOTP.setIssueAt(otp.getIssueAt());
+            otpRepository.save(oldOTP);
+        }
+        else{
+            otpRepository.save(otp);
+        }
+        String emails = emailServiceImpl.buildOtpEmail(user.getName(), otp.getCode());
+        emailServiceImpl.sendEmail(user.getEmail(), emails);
+        return success;
     }
 }
+

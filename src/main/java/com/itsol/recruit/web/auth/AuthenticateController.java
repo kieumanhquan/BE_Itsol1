@@ -12,6 +12,7 @@ import com.itsol.recruit.service.impl.EmailServiceImpl;
 import com.itsol.recruit.service.impl.OTPServiceImpl;
 import com.itsol.recruit.service.mapper.EmailService;
 import com.itsol.recruit.service.mapper.OTPService;
+import com.itsol.recruit.web.vm.ChangePassVM;
 import com.itsol.recruit.web.vm.LoginVM;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,11 +88,11 @@ public class AuthenticateController {
     }
 
     @PostMapping("/send-otp")
-    public ResponseEntity<Object> sendOtpEmail(@RequestParam String email){
+    public ResponseEntity<Object> sendOtpEmail(@RequestParam String email) throws Exception{
         return ResponseEntity.ok().body(Collections.singletonMap("message",otpService.sendOTP(email)));
     }
     @PostMapping("/change-password")
-    public  ResponseEntity<Object> changePassword(@RequestParam String code,@Valid @RequestBody UserDTO userDTO){
-        return ResponseEntity.ok().body(Collections.singletonMap("message",authenticateService.changePassword(code,userDTO)));
+    public  ResponseEntity<Object> changePassword(@Valid @RequestBody ChangePassVM changePassVM){
+        return ResponseEntity.ok().body(Collections.singletonMap("change",authenticateService.changePassword(changePassVM)));
     }
 }
