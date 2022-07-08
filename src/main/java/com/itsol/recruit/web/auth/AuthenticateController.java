@@ -1,6 +1,7 @@
 package com.itsol.recruit.web.auth;
 
 import com.itsol.recruit.core.Constants;
+import com.itsol.recruit.dto.ResponseDTO;
 import com.itsol.recruit.dto.UserDTO;
 import com.itsol.recruit.service.email.EmailService;
 import com.itsol.recruit.entity.Role;
@@ -41,7 +42,6 @@ import java.util.Set;
 public class AuthenticateController {
 
     AuthenticationManagerBuilder authenticationManagerBuilder;
-
     UserService userService;
     EmailService emailService;
     TokenProvider tokenProvider;
@@ -91,6 +91,10 @@ public class AuthenticateController {
     public ResponseEntity<?> authenticateAdmin(@Valid @RequestBody LoginVM loginVM) {
 //		Tạo chuỗi authentication từ username và password (object LoginRequest
 //		- file này chỉ là 1 class bình thường, chứa 2 trường username và password)
+        if (userService.findUserByEmail(loginVM.getUserName()) == null) {
+            return ResponseEntity.ok().body(
+                    new ResponseDTO(HttpStatus.NOT_FOUND, "NOT_FOUND"));
+        }
         UsernamePasswordAuthenticationToken authenticationString = new UsernamePasswordAuthenticationToken(
                 loginVM.getUserName(),
                 loginVM.getPassword()
@@ -105,11 +109,6 @@ public class AuthenticateController {
 //        User userLogin = userService.findUserByUserName(adminLoginVM.getUserName());
 //        return ResponseEntity.ok().body(new JWTTokenResponse(jwt, userLogin.getUserName())); //Trả về chuỗi jwt(authentication string)
 
-    }
-
-    @PostMapping("/send-otp")
-    public ResponseEntity<String> sendOtpEmail(@RequestParam String email){
-        return ResponseEntity.ok().body(otpService.sendOTP(email));
     }
 
 }
