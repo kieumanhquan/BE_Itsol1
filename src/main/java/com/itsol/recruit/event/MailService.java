@@ -15,7 +15,7 @@ public class MailService implements IMailService{
     @Autowired
     private UserService userService;
 
-    @Autowired
+    @Autowired(required = true)
     private JavaMailSender javaMailSender;
 
     @Override

@@ -36,32 +36,43 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
-        if (alreadySetup) {
-            return;
-        }
-        if (userRepository.findByUserName("admin") == null) {
-            Set<Role> adminRole = roleRepository.findByCode("ROLE_ADMIN");
+//        if (alreadySetup) {
+//            return;
+//        }
+//        if (userRepository.findByUserName("admin") == null) {
+//            Set<Role> adminRole = roleRepository.findByCode("ROLE_ADMIN");
+//            User user = new User();
+//            user.setUserName("admin");
+//            user.setName("admin");
+//            user.setEmail("admin@gmail.com");
+//            user.setPhoneNumber("0388888888");
+//            user.setBirthDay(new Date(1999 - 04 - 29));
+//            user.setPassword(passwordEncoder.encode("admin1"));
+//            user.setActive(true);
+//            user.setDelete(false);
+//            user.setRoles(adminRole);
+//            userRepository.save(user);
+//            alreadySetup = true;
+//        }
+//        else{
+//            alreadySetup = true;
+//        }
+        if (userRepository.findByUserName("user123") == null) {
+            Set<Role> userRole = roleRepository.findByCode("ROLE_USER");
             User user = new User();
-    /*        user.setUserName("admin");
-            user.setName("admin");
-            user.setEmail("admin@gmail.com");
-            user.setPhoneNumber("0388888888");
-            user.setBirthDay(new Date(1999 - 04 - 29));
-            user.setPassword(passwordEncoder.encode("admin1"));*/
 
-            user.setUserName("admin");
-            user.setName("admin");
-            user.setEmail("loc119865@nuce.edu.vn");
-            user.setPhoneNumber("0388887888");
+            user.setUserName("user123");
+            user.setName("user123");
+            user.setEmail("user@gmail.com");
+            user.setPhoneNumber("0123456789");
             user.setBirthDay(new Date(1999 - 04 - 29));
-            user.setPassword(passwordEncoder.encode("admin1"));
+            user.setPassword(passwordEncoder.encode("user123"));
             user.setActive(true);
             user.setDelete(false);
-            user.setRoles(adminRole);
+            user.setRoles(userRole);
             userRepository.save(user);
             alreadySetup = true;
-        }
-        else{
+        } else {
             alreadySetup = true;
         }
     }
