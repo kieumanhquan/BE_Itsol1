@@ -31,14 +31,14 @@ public class OTP implements Serializable {
 
     public OTP(User user){
         this.user=user;
-        Random random=new Random();
-        int number=100000+random.nextInt(900000);
+        Random random = new Random();
+        int number= 100000 + random.nextInt(900000);
         this.code=String.valueOf(number);
         this.issueAt=new Date();
     }
     public OTP(){
-        Random random=new Random();
-        int number=100000+random.nextInt(900000);
+        Random random = new Random();
+        int number= 100000 + random.nextInt(900000);
         this.code=String.valueOf(number);
         this.issueAt=new Date();
     }

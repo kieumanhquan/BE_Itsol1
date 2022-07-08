@@ -8,7 +8,7 @@ public interface EmailService {
 
     // Method
     // To send a simple email
-    void sendEmail(String to ,String email);
+    boolean sendEmail(String to ,String email);
 
     // Method
     // To send an email with attachment

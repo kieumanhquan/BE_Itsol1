@@ -39,6 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+
     public boolean isExistedUser(String userName) {
         return false;
     }
@@ -69,7 +70,6 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.getById(id);
         user.setActive(true);
         userRepository.save(user);
-
     }
 
 

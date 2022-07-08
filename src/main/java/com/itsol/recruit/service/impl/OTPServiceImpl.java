@@ -1,5 +1,6 @@
 package com.itsol.recruit.service.impl;
 
+
 import com.itsol.recruit.entity.OTP;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.repository.OTPRepository;
@@ -24,27 +25,25 @@ public class OTPServiceImpl implements OTPService {
 
     @Override
     public String sendOTP(String email) {
-        try {
-            User user = userRepository.findUserByEmail(email);
-            if (user == null) {
-                return "Không tìm thấy email";
-            }
-
-            OTP otp = new OTP(user);
-            OTP oldOTP = otpRepository.findByUser(user);
-            if (oldOTP != null) {
-                oldOTP.setCode(otp.getCode());
-                oldOTP.setIssueAt(otp.getIssueAt());
-                otpRepository.save(oldOTP);
-            } else
-                otpRepository.save(otp);
-            String emails = emailServiceImpl.buildOtpEmail(user.getName(), otp.getCode());
-            emailServiceImpl.sendEmail(user.getEmail(), emails);
-            return "Gửi mã OTP đến mail thành công";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Gửi mail không thành công";
+        String fail = "notfound";
+        String success = "success";
+        User user = userRepository.findUserByEmail(email);
+        if (user == null) {
+            return fail;
         }
-
+        OTP otp=new OTP(user);
+        OTP oldOTP=otpRepository.findByUser(user);
+        if(oldOTP!=null){
+            oldOTP.setCode(otp.getCode());
+            oldOTP.setIssueAt(otp.getIssueAt());
+            otpRepository.save(oldOTP);
+        }
+        else{
+            otpRepository.save(otp);
+        }
+        String emails = emailServiceImpl.buildOtpEmail(user.getName(), otp.getCode());
+        emailServiceImpl.sendEmail(user.getEmail(), emails);
+        return success;
     }
 }
+

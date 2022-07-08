@@ -57,9 +57,10 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 //        else{
 //            alreadySetup = true;
 //        }
-        if(userRepository.findByUserName("user123") == null){
+        if (userRepository.findByUserName("user123") == null) {
             Set<Role> userRole = roleRepository.findByCode("ROLE_USER");
             User user = new User();
+
             user.setUserName("user123");
             user.setName("user123");
             user.setEmail("user@gmail.com");
@@ -71,7 +72,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
             user.setRoles(userRole);
             userRepository.save(user);
             alreadySetup = true;
-        }else {
+        } else {
             alreadySetup = true;
         }
     }

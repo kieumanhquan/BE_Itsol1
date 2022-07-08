@@ -3,17 +3,18 @@ package com.itsol.recruit.web.auth;
 import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.dto.ResponseDTO;
 import com.itsol.recruit.dto.UserDTO;
-import com.itsol.recruit.service.email.EmailService;
 import com.itsol.recruit.entity.Role;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.repository.RoleRepository;
 import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
-//import com.itsol.recruit.service.AuthenticateService;
+import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
-import com.itsol.recruit.service.mapper.UserMapper;
+import com.itsol.recruit.service.email.EmailService;
 import com.itsol.recruit.service.mapper.OTPService;
+import com.itsol.recruit.service.mapper.UserMapper;
+import com.itsol.recruit.web.vm.ChangePassVM;
 import com.itsol.recruit.web.vm.LoginVM;
 import io.swagger.annotations.Api;
 import lombok.AccessLevel;
@@ -27,6 +28,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -49,39 +51,40 @@ public class AuthenticateController {
     UserMapper userMapper;
     UserRepository userRepository;
     OTPService otpService;
+    PasswordEncoder passwordEncoder;
+    AuthenticateService authenticateService;
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody UserDTO dto) {
 
-            Set<Role> roles = roleRepository.findByCode(Constants.Role.USER);
-            User user = userMapper.toEntity(dto);
-            user.setDelete(false);
-            user.setActive(false);
-            user.setActive(false);
-            user.setDelete(false);
-            user.setRoles(roles);
+        Set<Role> roles = roleRepository.findByCode(Constants.Role.USER);
+        User user = userMapper.toEntity(dto);
+        user.setDelete(false);
+        user.setActive(false);
+        user.setActive(false);
+        user.setDelete(false);
+        user.setRoles(roles);
 
-            if (userService.findUserByEmail(user.getEmail()) != null) {
-                System.out.println("mail trungf");
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (userService.findUserByEmail(user.getEmail()) != null) {
+            System.out.println("mail trungf");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
-            }
-            else if (userService.findUserByPhone(user.getPhoneNumber()) != null) {
-                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } else if (userService.findUserByPhone(user.getPhoneNumber()) != null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 
-            }else if(userService.findUserByUserName(user.getUserName()) != null) {
-                System.out.println("user name trùng");
-                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-            }
+        } else if (userService.findUserByUserName(user.getUserName()) != null) {
+            System.out.println("user name trùng");
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            String enCryptPassword = passwordEncoder.encode(dto.getPassword());
-            user.setPassword(enCryptPassword);
-            userRepository.save(user);
+        String enCryptPassword = passwordEncoder.encode(dto.getPassword());
+        user.setPassword(enCryptPassword);
+        userRepository.save(user);
 //            userService.sendConfirmUserRegistrationViaEmail(user.getEmail());
-            String url = "http://localhost:4200/public/active_account/" + user.getId();
-            String urlLink = emailService.buildActiveLink(url);
-            emailService.sendEmail(user.getEmail(),urlLink);
-            return ResponseEntity.ok().body(HttpStatus.OK);
+        String url = "http://localhost:4200/public/active_account/" + user.getId();
+        String urlLink = emailService.buildActiveLink(url);
+        emailService.sendEmail(user.getEmail(), urlLink);
+        return ResponseEntity.ok().body(HttpStatus.OK);
     }
 
     /*
@@ -111,4 +114,13 @@ public class AuthenticateController {
 
     }
 
+    @PostMapping("/send-otp")
+    public ResponseEntity<Object> sendOtpEmail(@RequestParam String email) throws Exception {
+        return ResponseEntity.ok().body(Collections.singletonMap("message", otpService.sendOTP(email)));
+    }
+
+    @PostMapping("/change-password")
+    public ResponseEntity<Object> changePassword(@Valid @RequestBody ChangePassVM changePassVM) {
+        return ResponseEntity.ok().body(Collections.singletonMap("change", authenticateService.changePassword(changePassVM)));
+    }
 }

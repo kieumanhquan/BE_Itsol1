@@ -8,6 +8,7 @@ spring:
     url: jdbc:oracle:thin:@localhost:1521:xe
     username: nhom_2
     password: 123456
+
   mail:
     host: smtp.gmail.com
     port: 587
