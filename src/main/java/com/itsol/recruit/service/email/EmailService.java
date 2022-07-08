@@ -24,8 +24,9 @@ public class EmailService {
             helper.setText(email, true);
             helper.setTo(to);
             helper.setSubject("Confirm your email");
-            helper.setFrom("trung03trung@gmail.com");
+//            helper.setFrom("tiendai2821dhpt@gmail.com");
             mailSender.send(mimeMessage);
+            System.out.println("send success");
         } catch (MessagingException e) {
             e.printStackTrace();
             throw new IllegalStateException("failed to send email");
