@@ -1,6 +1,7 @@
 package com.itsol.recruit.web.auth;
 
 import com.itsol.recruit.core.Constants;
+import com.itsol.recruit.dto.ResponseDTO;
 import com.itsol.recruit.dto.UserDTO;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.security.jwt.JWTFilter;
@@ -56,7 +57,10 @@ public class AuthenticateController {
     public ResponseEntity<?> authenticateAdmin(@Valid @RequestBody LoginVM loginVM) {
 //		Tạo chuỗi authentication từ username và password (object LoginRequest
 //		- file này chỉ là 1 class bình thường, chứa 2 trường username và password)
-
+        if (userService.findUserByEmail(loginVM.getUserName()) == null) {
+            return ResponseEntity.ok().body(
+                    new ResponseDTO(HttpStatus.NOT_FOUND, "NOT_FOUND"));
+        }
         UsernamePasswordAuthenticationToken authenticationString = new UsernamePasswordAuthenticationToken(
                 loginVM.getUserName(),
                 loginVM.getPassword()

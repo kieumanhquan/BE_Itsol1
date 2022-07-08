@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="954aefd6-ea49-44ea-b5d1-3e72a5cb096a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/dto/ResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/auth/AuthenticateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/auth/AuthenticateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/auth/AuthenticateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsol/recruit/web/auth/AuthenticateController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,17 +72,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;c5a5adb4becbec9d63074dcb70a2fa03&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/vungo/Desktop/employeemanager",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "c5a5adb4becbec9d63074dcb70a2fa03"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="RecruitApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="recruit" />
@@ -106,7 +115,8 @@
       <workItem from="1657120239284" duration="1440000" />
       <workItem from="1657126292413" duration="396000" />
       <workItem from="1657150588465" duration="1705000" />
-      <workItem from="1657158448177" duration="5964000" />
+      <workItem from="1657158448177" duration="6603000" />
+      <workItem from="1657243829681" duration="3638000" />
     </task>
     <servers />
   </component>
