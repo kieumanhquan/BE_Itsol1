@@ -49,22 +49,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserByEmail(String email) {
-        return null;
-    }
-
-    @Override
     public void sendConfirmUserRegistrationViaEmail(String email) {
 
     }
-
-    @Override
-    public void activeAccount(Long id) {
-
-    }
-
-
-
 
     @Override
     public User findUserByEmail(String email) {
@@ -75,8 +62,6 @@ public class UserServiceImpl implements UserService {
     public User findUserByPhone(String phone) {
         return userRepository.findUserByPhoneNumber(phone);
     }
-
-
 
     @Override
     public void activeAccount(Long id) {

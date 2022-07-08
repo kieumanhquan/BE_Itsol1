@@ -15,6 +15,9 @@ import com.itsol.recruit.service.mapper.UserMapper;
 import com.itsol.recruit.service.mapper.OTPService;
 import com.itsol.recruit.web.vm.LoginVM;
 import io.swagger.annotations.Api;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,30 +36,19 @@ import java.util.Set;
 @RequestMapping(value = Constants.Api.Path.AUTH)
 @Api(tags = "Auth")
 @CrossOrigin(origins = "*", maxAge = 3600)
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AuthenticateController {
 
-//    private final AuthenticateService authenticateService;
+    AuthenticationManagerBuilder authenticationManagerBuilder;
 
-    private final AuthenticationManagerBuilder authenticationManagerBuilder;
-
-    private final UserService userService;
-    private final EmailService emailService;
-    private final TokenProvider tokenProvider;
-    public final RoleRepository roleRepository;
-    public final UserMapper userMapper;
-    public final UserRepository userRepository;
-    private final OTPService otpService;
-
-    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService) {
-        this.authenticateService = authenticateService;
-        this.authenticationManagerBuilder = authenticationManagerBuilder;
-        this.userService = userService;
-        this.emailService = emailService;
-        this.roleRepository = roleRepository;
-        this.userMapper = userMapper;
-        this.userRepository = userRepository;
-        this.otpService = otpService;
-    }
+    UserService userService;
+    EmailService emailService;
+    TokenProvider tokenProvider;
+    RoleRepository roleRepository;
+    UserMapper userMapper;
+    UserRepository userRepository;
+    OTPService otpService;
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody UserDTO dto) {
