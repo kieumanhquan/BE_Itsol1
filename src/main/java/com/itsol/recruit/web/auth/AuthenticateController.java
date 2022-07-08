@@ -94,7 +94,7 @@ public class AuthenticateController {
     public ResponseEntity<?> authenticateAdmin(@Valid @RequestBody LoginVM loginVM) {
 //		Tạo chuỗi authentication từ username và password (object LoginRequest
 //		- file này chỉ là 1 class bình thường, chứa 2 trường username và password)
-        if (userService.findUserByEmail(loginVM.getUserName()) == null) {
+        if (userService.findUserByUserName(loginVM.getUserName()) == null) {
             return ResponseEntity.ok().body(
                     new ResponseDTO(HttpStatus.NOT_FOUND, "NOT_FOUND"));
         }
