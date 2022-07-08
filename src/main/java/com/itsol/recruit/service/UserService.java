@@ -12,6 +12,8 @@ public interface UserService {
 
     public User findUserByUserName(String userName);
 
+    public User findUserByPhone(String phone);
+
     public boolean isExistedUser(String userName);
     public boolean isExistedUserByEmail(String Email);
 
