@@ -1,10 +1,9 @@
 package com.itsol.recruit.dto;
 
-import com.itsol.recruit.entity.*;
 import lombok.Data;
 
 import javax.validation.constraints.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 public class JobDTO {

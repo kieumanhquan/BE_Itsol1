@@ -31,13 +31,11 @@ public class JobController {
     }
 
     @PostMapping(value = "/job/insert")
-    public ResponseEntity<String> insertJob(@RequestBody JobDTO jobDTO) {
-        jobService.insert(jobDTO);
-        String result = (jobService.insert(jobDTO) == null)? "Unsuccess" : "Success";
-        return ResponseEntity.ok().body(result);
+    public ResponseEntity<Job> insertJob(@RequestBody JobDTO jobDTO) {
+        return ResponseEntity.ok().body(jobService.insert(jobDTO));
     }
 
-    @DeleteMapping(value = "/job/insert")
+    @DeleteMapping(value = "/job/delete")
     public ResponseEntity<String> deleteJob(@RequestParam("id") Long id) {
         String result = jobService.delete(id)? "Success" : "Unsuccess";
         return ResponseEntity.ok().body(result);

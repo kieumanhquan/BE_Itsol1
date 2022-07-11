@@ -3,8 +3,10 @@ package com.itsol.recruit.service.impl;
 import com.itsol.recruit.dto.JobDTO;
 import com.itsol.recruit.entity.Job;
 import com.itsol.recruit.repository.JobRepository;
+import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.service.JobService;
 import com.itsol.recruit.service.mapper.JobMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -14,13 +16,21 @@ import java.util.List;
 @Transactional
 public class JobServiceImpl implements JobService {
 
-    public final JobRepository jobRepository;
+/*    public final JobRepository jobRepository;
 
     public final JobMapper jobMapper;
 
     public JobServiceImpl(JobRepository jobRepository, JobMapper jobMapper) {
         this.jobRepository = jobRepository;
         this.jobMapper = jobMapper;
+    }*/
+
+    public final JobRepository jobRepository;
+
+
+    public JobServiceImpl(JobRepository jobRepository) {
+
+        this.jobRepository = jobRepository;
     }
 
 
@@ -49,8 +59,11 @@ public class JobServiceImpl implements JobService {
         return false;
     }
 
+    @Autowired
+    JobMapper jobMapper;
     @Override
     public Job insert(JobDTO jobDTO) {
+
         Job job = jobMapper.toEntity(jobDTO);
         return jobRepository.save(job);
     }
@@ -60,7 +73,7 @@ public class JobServiceImpl implements JobService {
     public boolean delete(Long id) {
         Job job = this.findById(id);
         if(job == null) return false;
-        jobRepository.findById(id).get().setDelete(true);
+        job.setDelete(true);
         return true;
     }
 }

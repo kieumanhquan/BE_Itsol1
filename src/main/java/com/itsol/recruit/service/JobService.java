@@ -2,6 +2,7 @@ package com.itsol.recruit.service;
 
 import com.itsol.recruit.dto.JobDTO;
 import com.itsol.recruit.entity.Job;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
