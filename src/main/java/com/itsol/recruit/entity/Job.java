@@ -1,108 +1,104 @@
 package com.itsol.recruit.entity;
 
-
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
-
-@Entity(name = "Job")
+@Entity (name = "job")
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+
 public class Job {
     @Id
     @Column(nullable = false)
-
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JOBS_SEQ")
     @SequenceGenerator(name = "JOBS_SEQ", sequenceName = "JOBS_SEQ", allocationSize = 1, initialValue = 1)
-    
     Long id;
 
-    @Column(name = "name")
+    @Column(name = "NAME", nullable = false)
     String name;
 
-    @ManyToOne
-    @JoinColumn(name = "job_position_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "JOB_POSITION_ID", nullable = false)
     JobPosition jobPosition;
 
-    @Column(name = "number_experience")
-    Integer numberExperience;
+    @Column(name = "NUMBER_EXPERIENCE", nullable = false)
+    String numberExperience;
 
-    @ManyToOne
-    @JoinColumn(name = "working_form_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "WORKING_FORM_ID", nullable = false)
     WorkingForm workingForm;
 
-    @Column(name = "address_work")
+
+    @Column(name = "ADDRESS_WORK", nullable = false)
     String addressWork;
 
-    @ManyToOne
-    @JoinColumn(name = "academic_level_id")
-    AcademicLevel academicLevel ;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ACADEMIC_LEVEL_ID", nullable = false)
+    AcademicLevel academicLevel;
 
-    @ManyToOne
-    @JoinColumn(name = "rank_id")
-    Rank rank ;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "RANK_ID", nullable = false)
+    Rank rank;
 
-    @Column(name = "qty_person")
-    Integer qtyPerson;
+    @Column(name = "QTY_PERSON", nullable = false)
+    Long qtyPerson;
 
-    @Column(name = "start_recruitment_date")
-    Date startRecruitmentDate ;
+    @Column(name = "START_RECRUITMENT_DATE", nullable = false)
+    Date startRecruitmentDate;
 
-    @Column(name = "due_date")
+    @Column(name = "DUE_DATE", nullable = false)
     Date dueDate;
 
-    @Column(name = "skills")
+    @Column(name = "SKILLS", nullable = false)
     String skills;
 
-    @Column(name = "description")
+    @Column(name = "DESCRIPTION", nullable = false)
     String description;
 
-    @Column(name = "interrest")
-    String interrest;
+    @Column(name = "INTEREST", nullable = false)
+    String interest;
 
-    @Column(name = "job_requirement")
+    @Column(name = "JOB_REQUIREMENT", nullable = false)
     String jobRequirement;
 
-    @Column(name = "salary_max")
-    Integer salaryMax;
+    @Column(name = "SALARY_MAX", nullable = false)
+    Long salaryMax;
+    @Column(name = "SALARY_MIN", nullable = false)
+    Long salaryMin;
 
-    @Column(name = "salary_min")
-    Integer salaryMin;
-
-    @ManyToOne
-    @JoinColumn(name = "contact_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "CONTACT_ID", nullable = false)
     User contact;
 
-    @ManyToOne
-    @JoinColumn(name = "create_id")
-    User creater;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "CREATE_ID", nullable = false)
+    User create;
 
-    @Column(name = "create_date")
-    Date createDate ;
+    @Column(name = "CREATE_DATE", nullable = false)
+    Date createDate;
 
-    @ManyToOne
-    @JoinColumn(name = "update_id")
-    User updateUser;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "UPDATE_ID", nullable = false)
+    User update;
 
-    @Column(name = "update_date")
-    Date updateDate ;
+    @Column(name = "UPDATE_DATE", nullable = false)
+    Date updateDate;
 
-    @ManyToOne
-    @JoinColumn(name = "status_id")
-    StatusJob statusJob;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "STATUS_ID", nullable = false)
+    StatusJob status;
 
-    @Column(name = "views")
-    Integer views;
+    @Column(name = "VIEWS")
+    long views;
 
-    @Column(name = "isDelete ")
+    @Column(name = "IS_DELETE", nullable = false)
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    boolean isDelete ;
+    boolean isDelete;
 }
-

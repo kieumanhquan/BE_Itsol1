@@ -11,23 +11,25 @@ import javax.persistence.*;
 
 @Entity(name = "working_form")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+
 public class WorkingForm {
     @Id
-    @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "WORK_SEQ")
-    @SequenceGenerator(name = "WORK_SEQ", sequenceName = "WORK_SEQ", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GEN_WORKING_FORM_ID")
+    @SequenceGenerator(name = "GEN_WORKING_FORM_ID", sequenceName = "SEQ_WORKING_FORM", allocationSize = 1)
+
+    @Column(name = "ID", nullable = false)
     Long id;
 
-    @Column(name = "code")
+    @Column(name = "CODE", nullable = false)
     String code;
 
-    @Column(name="description")
+    @Column(name = "DESCRIPTION", nullable = false)
     String description;
 
-    @Column(name = "is_delete ")
+    @Column(name = "IS_DELETE", nullable = false)
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    private boolean isDelete ;
+    boolean isDelete;
 }
