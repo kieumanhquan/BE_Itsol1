@@ -11,7 +11,7 @@ import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
 import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
-import com.itsol.recruit.service.email.EmailService;
+import com.itsol.recruit.service.filerecruit.email.EmailService;
 import com.itsol.recruit.service.mapper.OTPService;
 import com.itsol.recruit.service.mapper.UserMapper;
 import com.itsol.recruit.web.vm.ChangePassVM;
@@ -79,6 +79,7 @@ public class AuthenticateController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String enCryptPassword = passwordEncoder.encode(dto.getPassword());
         user.setPassword(enCryptPassword);
+        System.out.println();
         userRepository.save(user);
 //            userService.sendConfirmUserRegistrationViaEmail(user.getEmail());
         String url = "http://localhost:4200/public/active_account/" + user.getId();
@@ -94,7 +95,7 @@ public class AuthenticateController {
     public ResponseEntity<?> authenticateAdmin(@Valid @RequestBody LoginVM loginVM) {
 //		Tạo chuỗi authentication từ username và password (object LoginRequest
 //		- file này chỉ là 1 class bình thường, chứa 2 trường username và password)
-        if (userService.findUserByEmail(loginVM.getUserName()) == null) {
+        if (userService.findUserByUserName(loginVM.getUserName()) == null) {
             return ResponseEntity.ok().body(
                     new ResponseDTO(HttpStatus.NOT_FOUND, "NOT_FOUND"));
         }
