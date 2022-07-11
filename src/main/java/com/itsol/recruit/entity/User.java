@@ -1,5 +1,6 @@
 package com.itsol.recruit.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
@@ -46,6 +47,7 @@ public class User{
     String gender;
 
     @Column(name = "birth_day")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     Date birthDay;
 
     @Column(name = "is_delete")
