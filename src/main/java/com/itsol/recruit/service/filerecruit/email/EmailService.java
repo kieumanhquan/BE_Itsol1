@@ -1,4 +1,4 @@
-package com.itsol.recruit.service.email;
+package com.itsol.recruit.service.filerecruit.email;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;

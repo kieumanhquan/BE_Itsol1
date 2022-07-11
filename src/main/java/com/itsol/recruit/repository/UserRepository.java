@@ -9,12 +9,16 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+import static org.hibernate.loader.Loader.SELECT;
+
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByUserName(String userName);
+    User findByNameContaining(String Name);
 
+    User findById(int id);
 
     @Query("select u from Users u join u.roles r where r.id = 2")
     List<User> getJE();

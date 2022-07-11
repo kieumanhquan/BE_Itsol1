@@ -1,8 +1,10 @@
 package com.itsol.recruit.service;
 
+import com.itsol.recruit.entity.Role;
 import com.itsol.recruit.entity.User;
 
 import java.util.List;
+import java.util.Set;
 
 public interface UserService {
 
@@ -23,6 +25,8 @@ public interface UserService {
     void sendConfirmUserRegistrationViaEmail(String email);
 
     void activeAccount(Long id);
+    void save (User user);
+    Set<Role> findByCode(String code);
 
     User updateUser (User user);
 

@@ -1,6 +1,8 @@
 package com.itsol.recruit.service.impl;
 
+import com.itsol.recruit.entity.Role;
 import com.itsol.recruit.entity.User;
+import com.itsol.recruit.repository.RoleRepository;
 import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -18,10 +21,11 @@ public class UserServiceImpl implements UserService {
     private ApplicationEventPublisher eventPublisher;
 
     public final UserRepository userRepository;
+    public final RoleRepository roleRepository;
 
-
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
     }
 
     @Override
@@ -71,6 +75,16 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.getById(id);
         user.setActive(true);
         userRepository.save(user);
+    }
+
+    @Override
+    public void save(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public Set<Role> findByCode(String code) {
+        return roleRepository.findByCode(code);
     }
 
     @Override
