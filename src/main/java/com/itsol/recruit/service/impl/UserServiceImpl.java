@@ -87,5 +87,20 @@ public class UserServiceImpl implements UserService {
         return roleRepository.findByCode(code);
     }
 
+    @Override
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
+
+
+    @Override
+    public List<User> getJE() {
+        return userRepository.getJE();
+    }
+
+    @Override
+    public List<User> getJEByName() {
+        return userRepository.getJESortByName();
+    }
 
 }

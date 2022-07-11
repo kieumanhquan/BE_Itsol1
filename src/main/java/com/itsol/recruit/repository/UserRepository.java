@@ -20,6 +20,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findById(int id);
 
+    @Query("select u from Users u join u.roles r where r.id = 2")
+    List<User> getJE();
+
+    @Query("select u from Users u join u.roles r where r.id = 2 ORDER BY u.name ASC ")
+    List<User> getJESortByName();
+
+
+    Optional<User> findByEmail(String email);
+
     User findUserByEmail(String email);
 
     User findUserByPhoneNumber(String phoneNumber);

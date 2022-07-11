@@ -28,4 +28,10 @@ public interface UserService {
     void save (User user);
     Set<Role> findByCode(String code);
 
+    User updateUser (User user);
+
+
+    List<User> getJE();
+
+    List<User> getJEByName();
 }
