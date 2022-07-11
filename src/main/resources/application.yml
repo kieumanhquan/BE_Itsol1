@@ -6,8 +6,10 @@ spring:
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
     url: jdbc:oracle:thin:@localhost:1521:xe
-    username: nhom_2
-    password: 123456
+#    username: nhom_2
+#    password: 123456
+    username: quankm
+    password: admin
 
   mail:
     host: smtp.gmail.com
