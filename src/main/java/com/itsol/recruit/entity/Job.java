@@ -1,11 +1,13 @@
 package com.itsol.recruit.entity;
 
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
+
 
 @Entity(name = "Job")
 @Data
@@ -16,65 +18,91 @@ import java.util.Date;
 public class Job {
     @Id
     @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
-    @SequenceGenerator(name = "USERS_SEQ", sequenceName = "USERS_SEQ", allocationSize = 1, initialValue = 1)
+
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JOBS_SEQ")
+    @SequenceGenerator(name = "JOBS_SEQ", sequenceName = "JOBS_SEQ", allocationSize = 1, initialValue = 1)
+    
     Long id;
 
     @Column(name = "name")
     String name;
 
-    @Column(name = "job_position_id")
-    Long job_position_id;
+    @ManyToOne
+    @JoinColumn(name = "job_position_id")
+    JobPosition jobPosition;
 
     @Column(name = "number_experience")
-    String number_experience;
+    Integer numberExperience;
 
-    @Column(name = "working_form_id")
-    Long working_form_id;
+    @ManyToOne
+    @JoinColumn(name = "working_form_id")
+    WorkingForm workingForm;
 
     @Column(name = "address_work")
-    String address_work;
+    String addressWork;
 
-    @Column(name = "academic_level_id")
-    Long academic_level_id;
+    @ManyToOne
+    @JoinColumn(name = "academic_level_id")
+    AcademicLevel academicLevel ;
 
-    @Column(name = "rank_id")
-    Long rank_id;
+    @ManyToOne
+    @JoinColumn(name = "rank_id")
+    Rank rank ;
 
     @Column(name = "qty_person")
-    Long qty_person;
+    Integer qtyPerson;
 
     @Column(name = "start_recruitment_date")
-    Date start_recruitment_date;
+    Date startRecruitmentDate ;
+
     @Column(name = "due_date")
-    Date due_date;
+    Date dueDate;
+
     @Column(name = "skills")
     String skills;
+
     @Column(name = "description")
     String description;
-    @Column(name = "interest")
-    String interest;
+
+    @Column(name = "interrest")
+    String interrest;
+
     @Column(name = "job_requirement")
-    String job_requirement;
+    String jobRequirement;
+
     @Column(name = "salary_max")
-    Long salary_max;
+    Integer salaryMax;
+
     @Column(name = "salary_min")
-    Long salary_min;
-    @Column(name = "contact_id")
-    Long contact_id;
-    @Column(name = "create_id")
-    Long create_id;
+    Integer salaryMin;
+
+    @ManyToOne
+    @JoinColumn(name = "contact_id")
+    User contact;
+
+    @ManyToOne
+    @JoinColumn(name = "create_id")
+    User creater;
+
     @Column(name = "create_date")
-    Date create_date;
-    @Column(name = "update_id")
-    Long update_id;
+    Date createDate ;
+
+    @ManyToOne
+    @JoinColumn(name = "update_id")
+    User updateUser;
+
     @Column(name = "update_date")
-    Date update_date;
-    @Column(name = "status_id")
-    Long status_date;
+    Date updateDate ;
+
+    @ManyToOne
+    @JoinColumn(name = "status_id")
+    StatusJob statusJob;
+
     @Column(name = "views")
-    String views;
-    @Column(name = "is_delete")
+    Integer views;
+
+    @Column(name = "isDelete ")
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    boolean isDelete;
+    boolean isDelete ;
 }
+

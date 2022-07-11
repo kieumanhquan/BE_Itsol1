@@ -1,6 +1,7 @@
 package com.itsol.recruit.entity;
 
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
 
@@ -59,3 +60,4 @@ public class Company  implements Serializable {
     boolean isDelete;
 
 }
+
