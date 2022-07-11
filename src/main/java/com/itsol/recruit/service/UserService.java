@@ -24,4 +24,10 @@ public interface UserService {
 
     void activeAccount(Long id);
 
+    User updateUser (User user);
+
+
+    List<User> getJE();
+
+    List<User> getJEByName();
 }

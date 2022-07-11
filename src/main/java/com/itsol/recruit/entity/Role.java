@@ -8,6 +8,8 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "roles")
 @Data
@@ -30,4 +32,11 @@ public class Role {
     @Column(name = "is_delete")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     boolean isDelete;
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "permisstion",
+//            joinColumns = @JoinColumn(name = "ROLE_ID"),
+//            inverseJoinColumns = @JoinColumn(name = "USER_ID")
+//    )
+//    private Set<User> users = new HashSet<>();
 }

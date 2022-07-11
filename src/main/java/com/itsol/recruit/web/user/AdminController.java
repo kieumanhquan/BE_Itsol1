@@ -1,17 +1,24 @@
 package com.itsol.recruit.web.user;
 
 import com.itsol.recruit.core.Constants;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.itsol.recruit.entity.User;
+import com.itsol.recruit.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = Constants.Api.Path.ADMIN)
 public class AdminController {
+    UserService userService;
     @GetMapping("helloAdmin")
     public String helloAdmin(){
         return "hello admin";
     }
+
+
+
 
 }
