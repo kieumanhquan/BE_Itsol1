@@ -47,7 +47,7 @@ public class AuthenticateController {
     UserService userService;
     EmailService emailService;
     TokenProvider tokenProvider;
-    RoleRepository roleRepository;
+
     UserMapper userMapper;
     UserRepository userRepository;
     OTPService otpService;
@@ -57,7 +57,7 @@ public class AuthenticateController {
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody UserDTO dto) {
 
-        Set<Role> roles = roleRepository.findByCode(Constants.Role.USER);
+        Set<Role> roles = userService.findByCode(Constants.Role.USER);
         User user = userMapper.toEntity(dto);
         user.setDelete(false);
         user.setActive(false);
@@ -74,14 +74,12 @@ public class AuthenticateController {
 
         } else if (userService.findUserByUserName(user.getUserName()) != null) {
             System.out.println("user name trùng");
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(HttpStatus.PAYMENT_REQUIRED);
         }
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String enCryptPassword = passwordEncoder.encode(dto.getPassword());
         user.setPassword(enCryptPassword);
-        System.out.println();
-        userRepository.save(user);
-//            userService.sendConfirmUserRegistrationViaEmail(user.getEmail());
+        userService.save(user);
         String url = "http://localhost:4200/public/active_account/" + user.getId();
         String urlLink = emailService.buildActiveLink(url);
         emailService.sendEmail(user.getEmail(), urlLink);

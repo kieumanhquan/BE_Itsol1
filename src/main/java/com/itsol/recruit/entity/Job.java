@@ -1,25 +1,27 @@
 package com.itsol.recruit.entity;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "job")
+
+@Entity(name = "Job")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Job {
     @Id
     @Column(nullable = false)
+
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JOBS_SEQ")
     @SequenceGenerator(name = "JOBS_SEQ", sequenceName = "JOBS_SEQ", allocationSize = 1, initialValue = 1)
+    
     Long id;
 
     @Column(name = "name")
@@ -103,3 +105,4 @@ public class Job {
     @Type(type = "org.hibernate.type.NumericBooleanType")
     boolean isDelete ;
 }
+
