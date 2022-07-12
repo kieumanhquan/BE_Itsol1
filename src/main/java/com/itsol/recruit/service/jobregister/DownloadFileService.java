@@ -1,4 +1,4 @@
-package com.itsol.recruit.service.filerecruit;
+package com.itsol.recruit.service.jobregister;
 
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;

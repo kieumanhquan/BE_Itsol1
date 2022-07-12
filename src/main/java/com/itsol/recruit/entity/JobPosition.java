@@ -10,7 +10,7 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
 
 
-@Entity (name = "job_position")
+@Entity(name = "job_position")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,17 +20,16 @@ public class JobPosition {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GEN_JOB_POSITION_ID")
     @SequenceGenerator(name = "GEN_JOB_POSITION_ID", sequenceName = "SEQ_JOB_POSITION", allocationSize = 1)
-
-    @Column(name = "ID", nullable = false)
+    @Column(nullable = false)
     Long id;
 
-    @Column(name = "CODE", nullable = false)
+    @Column(name = "CODE")
     String code;
 
-    @Column(name = "DESCRIPTION", nullable = false)
+    @Column(name = "DESCRIPTION")
     String description;
 
-    @Column(name = "IS_DELETE", nullable = false)
+    @Column(name = "IS_DELETE")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     boolean isDelete;
 

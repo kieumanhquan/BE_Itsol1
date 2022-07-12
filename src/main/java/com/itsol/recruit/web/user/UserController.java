@@ -26,7 +26,7 @@ public class UserController {
         return  ResponseEntity.ok().body( userService.getAllUser());
     }
 
-    @PutMapping(value = "/user/{id}")
+    @GetMapping(value = "/user/{id}")
     public ResponseEntity<User> findUserById(@PathVariable("id") Long id){
         return  ResponseEntity.ok().body( userService.findById(id));
     }
@@ -41,4 +41,5 @@ public class UserController {
         }
 
     }
+
 }

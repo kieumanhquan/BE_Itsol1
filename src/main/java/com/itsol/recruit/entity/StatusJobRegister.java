@@ -19,13 +19,13 @@ public class StatusJobRegister implements  Serializable {
     @SequenceGenerator(name = "PROFILES_SEQ", sequenceName = "PROFILES_SEQ", allocationSize = 1, initialValue = 1)
     Long id;
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "is_delete", nullable = false)
+    @Column(name = "is_delete")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean isDelete;
 
