@@ -29,6 +29,14 @@ public class Role {
     @Column(name = "description")
     String description;
 
+/*    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "permisstion",
+            joinColumns = @JoinColumn(name = "ROLE_ID"),
+            inverseJoinColumns = @JoinColumn(name = "USER_ID")
+    )
+    private Set<User> users = new HashSet<>();*/
+
     @Column(name = "is_delete")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     boolean isDelete;

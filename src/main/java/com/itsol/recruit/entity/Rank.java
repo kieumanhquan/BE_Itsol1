@@ -11,23 +11,27 @@ import javax.persistence.*;
 
 @Entity(name = "rank")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+
 public class Rank {
+
     @Id
-    @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RANK_SEQ")
-    @SequenceGenerator(name = "RANK_SEQ", sequenceName = "RANK_SEQ", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GEN_RANK_ID")
+    @SequenceGenerator(name = "GEN_RANK_ID", sequenceName = "SEQ_RANK", allocationSize = 1)
+
+    @Column(name = "ID", nullable = false)
     Long id;
 
-    @Column(name = "code")
+    @Column(name = "CODE", nullable = false)
     String code;
 
-    @Column(name = "description")
+    @Column(name = "DESCRIPTION", nullable = false)
     String description;
 
-    @Column(name = "is_delete ")
+    @Column(name = "IS_DELETE", nullable = false)
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    private boolean isDelete ;
+    boolean isDelete;
+
 }

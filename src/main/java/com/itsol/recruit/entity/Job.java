@@ -1,27 +1,25 @@
 package com.itsol.recruit.entity;
 
-
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
 
-
-@Entity(name = "Job")
+@Entity(name = "job")
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Job {
     @Id
     @Column(nullable = false)
-
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JOBS_SEQ")
     @SequenceGenerator(name = "JOBS_SEQ", sequenceName = "JOBS_SEQ", allocationSize = 1, initialValue = 1)
-    
     Long id;
 
     @Column(name = "name")
@@ -32,7 +30,7 @@ public class Job {
     JobPosition jobPosition;
 
     @Column(name = "number_experience")
-    Integer numberExperience;
+    String numberExperience;
 
     @ManyToOne
     @JoinColumn(name = "working_form_id")
@@ -50,7 +48,7 @@ public class Job {
     Rank rank ;
 
     @Column(name = "qty_person")
-    Integer qtyPerson;
+    Long qtyPerson;
 
     @Column(name = "start_recruitment_date")
     Date startRecruitmentDate ;
@@ -64,17 +62,17 @@ public class Job {
     @Column(name = "description")
     String description;
 
-    @Column(name = "interrest")
-    String interrest;
+    @Column(name = "interest")
+    String interest;
 
     @Column(name = "job_requirement")
     String jobRequirement;
 
     @Column(name = "salary_max")
-    Integer salaryMax;
+    Long salaryMax;
 
     @Column(name = "salary_min")
-    Integer salaryMin;
+    Long salaryMin;
 
     @ManyToOne
     @JoinColumn(name = "contact_id")
@@ -82,27 +80,26 @@ public class Job {
 
     @ManyToOne
     @JoinColumn(name = "create_id")
-    User creater;
+    User create;
 
     @Column(name = "create_date")
     Date createDate ;
 
     @ManyToOne
     @JoinColumn(name = "update_id")
-    User updateUser;
+    User update;
 
     @Column(name = "update_date")
     Date updateDate ;
 
     @ManyToOne
     @JoinColumn(name = "status_id")
-    StatusJob statusJob;
+    StatusJob status;
 
     @Column(name = "views")
-    Integer views;
+    Long views;
 
     @Column(name = "isDelete ")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     boolean isDelete ;
 }
-
