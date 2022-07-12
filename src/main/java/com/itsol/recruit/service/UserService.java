@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Set;
 
-public interface UserService {
+public interface UserService{
 
     public List<User> getAllUser();
 

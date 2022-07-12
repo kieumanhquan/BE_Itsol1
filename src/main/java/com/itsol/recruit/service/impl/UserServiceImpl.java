@@ -20,7 +20,7 @@ import java.util.Set;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl  implements UserService {
     @Autowired
     private ApplicationEventPublisher eventPublisher;
 

@@ -19,7 +19,7 @@ public class CompanyIntroController {
         this.companyIntroService = companyIntroService;
     }
 
-    @GetMapping(value = "contact")
+    @GetMapping(value = "aboutus")
 
     public ResponseEntity<Company> IntroCompany(){
         return  new ResponseEntity<>(companyIntroService.findById(1L), HttpStatus.OK);
