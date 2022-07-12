@@ -1,4 +1,4 @@
-package com.itsol.recruit.service.filerecruit;
+package com.itsol.recruit.service.jobregister;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

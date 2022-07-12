@@ -1,5 +1,6 @@
 package com.itsol.recruit.web.auth;
 
+import antlr.StringUtils;
 import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.dto.ResponseDTO;
 import com.itsol.recruit.dto.UserDTO;
@@ -11,7 +12,7 @@ import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
 import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
-import com.itsol.recruit.service.filerecruit.email.EmailService;
+import com.itsol.recruit.service.jobregister.email.EmailService;
 import com.itsol.recruit.service.mapper.OTPService;
 import com.itsol.recruit.service.mapper.UserMapper;
 import com.itsol.recruit.web.vm.ChangePassVM;
@@ -20,6 +21,10 @@ import io.swagger.annotations.Api;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.Parameter;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,11 +34,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Collections;
-import java.util.Set;
+import java.awt.print.Pageable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = Constants.Api.Path.AUTH)
@@ -44,10 +52,10 @@ import java.util.Set;
 public class AuthenticateController {
 
     AuthenticationManagerBuilder authenticationManagerBuilder;
-    UserService userService;
+    UserService userService ;
     EmailService emailService;
     TokenProvider tokenProvider;
-
+    RoleRepository roleRepository;
     UserMapper userMapper;
     UserRepository userRepository;
     OTPService otpService;
@@ -122,4 +130,27 @@ public class AuthenticateController {
     public ResponseEntity<Object> changePassword(@Valid @RequestBody ChangePassVM changePassVM) {
         return ResponseEntity.ok().body(Collections.singletonMap("change", authenticateService.changePassword(changePassVM)));
     }
+
+    @GetMapping("/je")
+    public ResponseEntity<List<User>> getJE () {
+        List<User> users = userService.getJE();
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    @GetMapping("/je/sortByName")
+    public ResponseEntity<List<User>> getJEByName () {
+        List<User> users = userRepository.getJESortByName();
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+    @PutMapping("/update")
+    public ResponseEntity<User> updateUser(@RequestBody User user){
+        User update = userService.updateUser(user);
+        return new ResponseEntity<>(update,HttpStatus.OK);
+    }
+    @GetMapping("/getuser/{name}")
+    public ResponseEntity<User> getUser(@PathVariable("name") String name){
+        User user = userService.findUserByUserName(name);
+        return new ResponseEntity<>(user , HttpStatus.OK);
+    }
+
 }

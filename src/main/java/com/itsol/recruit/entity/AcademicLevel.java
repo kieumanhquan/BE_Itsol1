@@ -9,26 +9,27 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
-@Entity(name = "Academic_Level")
+@Entity(name = "academic_level")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+
 public class AcademicLevel {
     @Id
-    @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AL_SEQ")
-    @SequenceGenerator(name = "AL_SEQ", sequenceName = "AL_SEQ", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GEN_ACADEMIC_LEVEL_ID")
+    @SequenceGenerator(name = "GEN_ACADEMIC_LEVEL_ID", sequenceName = "SEQ_ACADEMIC_LEVEL", allocationSize = 1)
+
+    @Column(name = "ID", nullable = false)
     Long id;
 
-    @Column(name = "code", nullable = false)
-    String name;
+    @Column(name = "CODE", nullable = false)
+    String code;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "DESCRIPTION", nullable = false)
     String description;
 
-    @Column(name = "is_delete ")
+    @Column(name = "IS_DELETE", nullable = false)
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    private boolean isDelete;
-
+    boolean isDelete;
 }

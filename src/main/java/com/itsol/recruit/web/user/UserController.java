@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value = Constants.Api.Path.PUBLIC)
 
 public class UserController {
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/user/{id}")
-    public ResponseEntity<User> findUserById(@RequestParam("id") Long id){
+    public ResponseEntity<User> findUserById(@PathVariable("id") Long id){
         return  ResponseEntity.ok().body( userService.findById(id));
     }
     @GetMapping(value = "/active_account/{id}")

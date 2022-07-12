@@ -10,10 +10,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public class JobRepositoryImpl extends BaseRepository implements JobRepositoryExt {
+
     @Override
     public Job getAllJob() {
         return null;
     }
+    
     public List<Job> searchJob(SearchJobVM searchVM){
         String query = "SELECT * FROM\n" +
                 "                JOB where skills like "+ searchVM.getSkill();

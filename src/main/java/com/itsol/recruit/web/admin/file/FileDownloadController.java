@@ -1,6 +1,6 @@
 package com.itsol.recruit.web.admin.file;
 
-import com.itsol.recruit.service.filerecruit.DownloadFileService;
+import com.itsol.recruit.service.jobregister.DownloadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
