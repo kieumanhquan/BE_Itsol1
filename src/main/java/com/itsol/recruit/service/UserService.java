@@ -6,7 +6,7 @@ import com.itsol.recruit.entity.User;
 import java.util.List;
 import java.util.Set;
 
-public interface UserService {
+public interface UserService{
 
     public List<User> getAllUser();
 
