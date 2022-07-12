@@ -25,19 +25,17 @@ public class JobServiceImpl implements JobService {
         this.jobMapper = jobMapper;
     }*/
 
-    public final JobRepository jobRepository;
+    @Autowired
+    JobRepository jobRepository;
 
-
-    public JobServiceImpl(JobRepository jobRepository) {
-
-        this.jobRepository = jobRepository;
-    }
-
+    @Autowired
+    JobMapper jobMapper;
 
     @Override
     public List<Job> getAllJob() {
         return jobRepository.findAll();
     }
+
 
     @Override
     public Job findById(Long id) {
@@ -59,8 +57,6 @@ public class JobServiceImpl implements JobService {
         return false;
     }
 
-    @Autowired
-    JobMapper jobMapper;
     @Override
     public Job insert(JobDTO jobDTO) {
 

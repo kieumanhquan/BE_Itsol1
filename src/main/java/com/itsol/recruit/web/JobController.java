@@ -26,17 +26,16 @@ public class JobController {
     }
 
     @GetMapping(value = "/job/{id}")
-    public ResponseEntity<Job> findJobById(@RequestParam("id") Long id){
+    public ResponseEntity<Job> findJobById(@PathVariable("id") Long id){
         return  ResponseEntity.ok().body(jobService.findById(id));
     }
-
     @PostMapping(value = "/job/insert")
     public ResponseEntity<Job> insertJob(@RequestBody JobDTO jobDTO) {
         return ResponseEntity.ok().body(jobService.insert(jobDTO));
     }
 
-    @DeleteMapping(value = "/job/delete")
-    public ResponseEntity<String> deleteJob(@RequestParam("id") Long id) {
+    @DeleteMapping(value = "/job/delete/{id}")
+    public ResponseEntity<String> deleteJob(@PathVariable("id") Long id) {
         String result = jobService.delete(id)? "Success" : "Unsuccess";
         return ResponseEntity.ok().body(result);
     }

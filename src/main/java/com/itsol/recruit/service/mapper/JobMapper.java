@@ -78,8 +78,32 @@ public class JobMapper implements EntityMapper<JobDTO, Job>{
         JobDTO dto = new JobDTO();
         BeanUtils.copyProperties(entity, dto);
 
+/*        dto.setName(entity.getName());
+        dto.setJobPositionId(entity.getJobPosition().getId());
+        dto.setNumberExperience(entity.getNumberExperience());
+        dto.setWorkingFormId(entity.getWorkingForm().getId());
+        dto.setAddressWork(entity.getAddressWork());
+        dto.setAcademicLevelId(entity.getAcademicLevel().getId());
+        dto.setRankId(entity.getRank().getId());
+        dto.setQtyPerson(entity.getQtyPerson());
+        dto.setStartRecruitmentDate(entity.getStartRecruitmentDate());
+        dto.setDueDate(entity.getDueDate());
+        dto.setSkills(entity.getSkills());
+        dto.setDescription(entity.getDescription());
+        dto.setJobRequirement(entity.getJobRequirement());
+        dto.setSalaryMax(entity.getSalaryMax());
+        dto.setSalaryMin(entity.getSalaryMin());
+        dto.setContactId(entity.getContact().getId());
+        dto.setCreateId(entity.getCreate().getId());
+        dto.setCreateDate(entity.getCreateDate());
+        dto.setUpdateId(entity.getUpdate().getId());
+        dto.setUpdateDate(entity.getUpdateDate());
+        dto.setStatusId(entity.getStatus().getId());
+        dto.setViews(entity.getViews());*/
+
         return dto;
     }
+
 
     @Override
     public List<Job> toEntity(List<JobDTO> dtoList) {

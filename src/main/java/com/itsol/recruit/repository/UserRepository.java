@@ -20,13 +20,12 @@ import static org.hibernate.loader.Loader.SELECT;
 public interface UserRepository extends JpaRepository<User, Long>, UserRepositoryExt {
 
     User findByUserName(String userName);
-    User findByNameContaining(String Name);
+
 
     User findById(int id);
 
     @Query("select u from Users u join u.roles r where r.id = 2")
     List<User> getJE();
-
 
     @Query("select u from Users u join u.roles r where r.id = 2 ORDER BY u.name ASC ")
     List<User> getJESortByName();
@@ -37,6 +36,7 @@ public interface UserRepository extends JpaRepository<User, Long>, UserRepositor
     User findUserByEmail(String email);
 
     User findUserByPhoneNumber(String phoneNumber);
+
 
     /*@Query("select u from Users u join u.roles ur "
             + "where  ur.id in ( "
