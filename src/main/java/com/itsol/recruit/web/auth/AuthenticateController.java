@@ -1,5 +1,6 @@
 package com.itsol.recruit.web.auth;
 
+import antlr.StringUtils;
 import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.dto.ResponseDTO;
 import com.itsol.recruit.dto.UserDTO;
@@ -20,6 +21,10 @@ import io.swagger.annotations.Api;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.Parameter;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,12 +34,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.awt.print.Pageable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = Constants.Api.Path.AUTH)
@@ -145,6 +152,5 @@ public class AuthenticateController {
         User user = userService.findUserByUserName(name);
         return new ResponseEntity<>(user , HttpStatus.OK);
     }
-
 
 }
