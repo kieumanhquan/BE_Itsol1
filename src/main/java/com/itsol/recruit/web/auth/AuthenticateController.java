@@ -11,7 +11,7 @@ import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
 import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
-import com.itsol.recruit.service.email.EmailService;
+import com.itsol.recruit.service.filerecruit.email.EmailService;
 import com.itsol.recruit.service.mapper.OTPService;
 import com.itsol.recruit.service.mapper.UserMapper;
 import com.itsol.recruit.web.vm.ChangePassVM;

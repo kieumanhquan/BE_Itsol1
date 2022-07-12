@@ -1,19 +1,21 @@
 package com.itsol.recruit.entity;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
-@Entity (name = "job")
+@Entity(name = "job")
 @Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-
 public class Job {
     @Id
     @Column(nullable = false)
@@ -21,84 +23,88 @@ public class Job {
     @SequenceGenerator(name = "JOBS_SEQ", sequenceName = "JOBS_SEQ", allocationSize = 1, initialValue = 1)
     Long id;
 
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "name")
     String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "JOB_POSITION_ID", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "job_position_id")
     JobPosition jobPosition;
 
-    @Column(name = "NUMBER_EXPERIENCE", nullable = false)
+    @Column(name = "number_experience")
     String numberExperience;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "WORKING_FORM_ID", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "working_form_id")
     WorkingForm workingForm;
 
-
-    @Column(name = "ADDRESS_WORK", nullable = false)
+    @Column(name = "address_work")
     String addressWork;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ACADEMIC_LEVEL_ID", nullable = false)
-    AcademicLevel academicLevel;
+    @ManyToOne
+    @JoinColumn(name = "academic_level_id")
+    AcademicLevel academicLevel ;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "RANK_ID", nullable = false)
-    Rank rank;
+    @ManyToOne
+    @JoinColumn(name = "rank_id")
+    Rank rank ;
 
-    @Column(name = "QTY_PERSON", nullable = false)
+    @Column(name = "qty_person")
     Long qtyPerson;
 
-    @Column(name = "START_RECRUITMENT_DATE", nullable = false)
-    Date startRecruitmentDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @Column(name = "start_recruitment_date")
+    Date startRecruitmentDate ;
 
-    @Column(name = "DUE_DATE", nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @Column(name = "due_date")
     Date dueDate;
 
-    @Column(name = "SKILLS", nullable = false)
+    @Column(name = "skills")
     String skills;
 
-    @Column(name = "DESCRIPTION", nullable = false)
+    @Column(name = "description")
     String description;
 
-    @Column(name = "INTEREST", nullable = false)
+    @Column(name = "interest")
     String interest;
 
-    @Column(name = "JOB_REQUIREMENT", nullable = false)
+    @Column(name = "job_requirement")
     String jobRequirement;
 
-    @Column(name = "SALARY_MAX", nullable = false)
+    @Column(name = "salary_max")
     Long salaryMax;
-    @Column(name = "SALARY_MIN", nullable = false)
+
+    @Column(name = "salary_min")
     Long salaryMin;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "CONTACT_ID", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "contact_id")
     User contact;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "CREATE_ID", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "create_id")
     User create;
 
-    @Column(name = "CREATE_DATE", nullable = false)
-    Date createDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @Column(name = "create_date")
+    Date createDate ;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "UPDATE_ID", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "update_id")
     User update;
 
-    @Column(name = "UPDATE_DATE", nullable = false)
-    Date updateDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @Column(name = "update_date")
+    Date updateDate ;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "STATUS_ID", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "status_id")
     StatusJob status;
 
-    @Column(name = "VIEWS")
-    long views;
+    @Column(name = "views")
+    Long views;
 
-    @Column(name = "IS_DELETE", nullable = false)
+    @Column(name = "isDelete ")
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    boolean isDelete;
+    boolean isDelete ;
 }
