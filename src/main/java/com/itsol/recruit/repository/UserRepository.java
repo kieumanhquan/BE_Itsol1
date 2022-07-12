@@ -20,7 +20,7 @@ import static org.hibernate.loader.Loader.SELECT;
 public interface UserRepository extends JpaRepository<User, Long>, UserRepositoryExt {
 
     User findByUserName(String userName);
-    User findByNameContaining(String Name);
+
 
     User findById(int id);
 
