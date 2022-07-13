@@ -1,4 +1,4 @@
-package com.itsol.recruit.service.jobregister;
+package com.itsol.recruit.service.impl.jobregister;
 
 import com.itsol.recruit.dto.JobRegisterDTO;
 import com.itsol.recruit.entity.JobRegister;

@@ -1,7 +1,7 @@
 package com.itsol.recruit.web.admin.file;
 
 import com.itsol.recruit.dto.FileUploadDTO;
-import com.itsol.recruit.service.jobregister.UploadFileService;
+import com.itsol.recruit.service.impl.jobregister.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

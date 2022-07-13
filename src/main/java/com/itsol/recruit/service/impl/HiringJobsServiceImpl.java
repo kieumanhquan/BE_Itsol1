@@ -2,6 +2,7 @@ package com.itsol.recruit.service.impl;
 
 import com.itsol.recruit.entity.Job;
 import com.itsol.recruit.repository.HiringJobRepository;
+import com.itsol.recruit.repository.JobRepository;
 import com.itsol.recruit.repository.repoimpl.JobRepositoryImpl;
 import com.itsol.recruit.service.HiringJobsService;
 import com.itsol.recruit.web.vm.SearchJobVM;
@@ -13,9 +14,11 @@ import java.util.List;
 public class HiringJobsServiceImpl implements HiringJobsService {
     @Autowired
     private final  HiringJobRepository hiringJobRepository;
-    private final JobRepositoryImpl jobRepository;
-    public HiringJobsServiceImpl(HiringJobRepository hiringJobRepository, JobRepositoryImpl jobRepository) {
+    private final JobRepositoryImpl jobRepositoryImpl;
+    private final JobRepository jobRepository;
+    public HiringJobsServiceImpl(HiringJobRepository hiringJobRepository, JobRepository jobRepository, JobRepositoryImpl jobRepositoryImpl) {
         this.hiringJobRepository = hiringJobRepository;
+        this.jobRepositoryImpl = jobRepositoryImpl;
         this.jobRepository = jobRepository;
     }
 
@@ -26,6 +29,9 @@ public class HiringJobsServiceImpl implements HiringJobsService {
 
     @Override
     public List<Job> searchJob(SearchJobVM searchVM) {
-        return jobRepository.searchJob(searchVM);
+        return jobRepositoryImpl.searchJob(searchVM);
     }
+
+
+
 }

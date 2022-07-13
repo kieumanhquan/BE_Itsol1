@@ -1,4 +1,4 @@
-package com.itsol.recruit.service.jobregister.email;
+package com.itsol.recruit.service.impl.jobregister.email;
 
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
