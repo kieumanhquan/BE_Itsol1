@@ -16,4 +16,5 @@ public interface JobRegisterRepository extends JpaRepository<JobRegister, Long> 
     @Query("select j from job_register j")
     Page<JobRegister> findJobRegister(Pageable pageable);
 
+
 }
