@@ -20,7 +20,7 @@ import static org.hibernate.loader.Loader.SELECT;
 public interface UserRepository extends JpaRepository<User, Long>, UserRepositoryExt {
 
     User findByUserName(String userName);
-    User findByNameContaining(String Name);
+
 
     User findById(int id);
 
@@ -37,6 +37,7 @@ public interface UserRepository extends JpaRepository<User, Long>, UserRepositor
     User findUserByEmail(String email);
 
     User findUserByPhoneNumber(String phoneNumber);
+
 
     /*@Query("select u from Users u join u.roles ur "
             + "where  ur.id in ( "

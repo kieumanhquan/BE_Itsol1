@@ -3,9 +3,8 @@ package com.itsol.recruit.service;
 
 import com.itsol.recruit.dto.UserDTO;
 import com.itsol.recruit.entity.User;
-import com.itsol.recruit.web.vm.ChangePassVM;
 
 public interface AuthenticateService {
-
-    public String changePassword(ChangePassVM changePassVM);
+    public User signup(UserDTO dto);
+    public String forgotPassword(String code,UserDTO userDto);
 }

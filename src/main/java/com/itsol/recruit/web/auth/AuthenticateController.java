@@ -1,5 +1,6 @@
 package com.itsol.recruit.web.auth;
 
+import antlr.StringUtils;
 import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.dto.ResponseDTO;
 import com.itsol.recruit.dto.UserDTO;
@@ -42,16 +43,23 @@ import java.util.*;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AuthenticateController {
 
-    AuthenticationManagerBuilder authenticationManagerBuilder;
-    UserService userService ;
-    EmailService emailService;
-    TokenProvider tokenProvider;
-    RoleRepository roleRepository;
-    UserMapper userMapper;
-    UserRepository userRepository;
-    OTPService otpService;
-    PasswordEncoder passwordEncoder;
-    AuthenticateService authenticateService;
+    private final AuthenticateService authenticateService;
+
+    private final AuthenticationManagerBuilder authenticationManagerBuilder;
+
+    private final UserService userService;
+
+    private final TokenProvider tokenProvider;
+
+    private final OTPService otpService;
+
+    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService) {
+        this.authenticateService = authenticateService;
+        this.authenticationManagerBuilder = authenticationManagerBuilder;
+        this.userService = userService;
+        this.tokenProvider = tokenProvider;
+        this.otpService = otpService;
+    }
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody UserDTO dto) {
@@ -113,30 +121,13 @@ public class AuthenticateController {
     }
 
     @PostMapping("/send-otp")
-    public ResponseEntity<Object> sendOtpEmail(@RequestParam String email) throws Exception {
-        return ResponseEntity.ok().body(Collections.singletonMap("message", otpService.sendOTP(email)));
+    public ResponseEntity<String> sendOtpEmail(@RequestParam String email) {
+        return ResponseEntity.ok().body(otpService.sendOTP(email));
     }
 
     @PostMapping("/change-password")
-    public ResponseEntity<Object> changePassword(@Valid @RequestBody ChangePassVM changePassVM) {
-        return ResponseEntity.ok().body(Collections.singletonMap("change", authenticateService.changePassword(changePassVM)));
-    }
-
-    @GetMapping("/je")
-    public ResponseEntity<List<User>> getJE () {
-        List<User> users = userService.getJE();
-        return new ResponseEntity<>(users, HttpStatus.OK);
-    }
-
-    @GetMapping("/je/sortByName")
-    public ResponseEntity<List<User>> getJEByName () {
-        List<User> users = userRepository.getJESortByName();
-        return new ResponseEntity<>(users, HttpStatus.OK);
-    }
-    @PutMapping("/update")
-    public ResponseEntity<User> updateUser(@RequestBody User user){
-        User update = userService.updateUser(user);
-        return new ResponseEntity<>(update,HttpStatus.OK);
+    public ResponseEntity<Object> changePassword(@RequestParam String code, @Valid @RequestBody UserDTO userDTO) {
+        return ResponseEntity.ok().body(Collections.singletonMap("message",authenticateService.forgotPassword(code,userDTO)));
     }
     @GetMapping("/getuser/{name}")
     public ResponseEntity<User> getUser(@PathVariable("name") String name){

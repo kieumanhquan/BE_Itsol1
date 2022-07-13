@@ -23,19 +23,24 @@ public class JobRegisterService {
     @Autowired
     JobRegisterRepository jobRegister;
 
-    public Page<JobRegisterDTO> getAllJobRegister(int pageNo, int pageSize, String sort) {
+
+    public Page<JobRegisterDTO> getAllJobRegister(int page, int pageSize, String sort, boolean type) {
         Pageable pageable;
         if (sort == null) {
-            pageable = PageRequest.of(pageNo, pageSize);
+            pageable = PageRequest.of(page, pageSize);
         } else {
-            pageable = PageRequest.of(pageNo,pageSize,Sort.by(sort));
+            if (type) {
+                pageable = PageRequest.of(page, pageSize, Sort.by(sort).ascending());
+            } else {
+                pageable = PageRequest.of(page, pageSize, Sort.by(sort).descending());
+            }
         }
-        return  jobRegister.findJobRegister(pageable).map(this::convertEntityToDTO);
+        return jobRegister.findJobRegister(pageable).map(this::convertEntityToDTO);
     }
-
 
     public JobRegisterDTO convertEntityToDTO(JobRegister jobRegister) {
         JobRegisterDTO fileRecruitDTO = new JobRegisterDTO();
+        fileRecruitDTO.setId(jobRegister.getId());
         fileRecruitDTO.setName(jobRegister.getUser().getName());
         fileRecruitDTO.setJobPosition(jobRegister.getJob().getJobPosition().getDescription());
         fileRecruitDTO.setDateRegister(jobRegister.getDateRegister());
@@ -44,4 +49,5 @@ public class JobRegisterService {
         fileRecruitDTO.setReason(jobRegister.getReason());
         return fileRecruitDTO;
     }
+
 }
