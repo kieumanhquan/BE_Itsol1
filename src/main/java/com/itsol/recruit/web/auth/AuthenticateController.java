@@ -12,6 +12,7 @@ import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
 import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
+import com.itsol.recruit.service.impl.UserServiceImpl;
 import com.itsol.recruit.service.jobregister.email.EmailService;
 import com.itsol.recruit.service.mapper.OTPService;
 import com.itsol.recruit.service.mapper.UserMapper;
@@ -24,6 +25,7 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Parameter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -34,11 +36,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.awt.print.Pageable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -50,7 +52,7 @@ import java.util.*;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AuthenticateController {
-
+    UserServiceImpl userServiceImpl;
     AuthenticationManagerBuilder authenticationManagerBuilder;
     UserService userService ;
     EmailService emailService;
@@ -131,26 +133,38 @@ public class AuthenticateController {
         return ResponseEntity.ok().body(Collections.singletonMap("change", authenticateService.changePassword(changePassVM)));
     }
 
-    @GetMapping("/je")
-    public ResponseEntity<List<User>> getJE () {
-        List<User> users = userService.getJE();
-        return new ResponseEntity<>(users, HttpStatus.OK);
-    }
+//    @GetMapping("/je")
+//    public ResponseEntity<List<User>> getJE () {
+//        List<User> users = userService.getJE();
+//        return new ResponseEntity<>(users, HttpStatus.OK);
+//    }
 
     @GetMapping("/je/sortByName")
     public ResponseEntity<List<User>> getJEByName () {
         List<User> users = userRepository.getJESortByName();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
-    @PutMapping("/update")
-    public ResponseEntity<User> updateUser(@RequestBody User user){
-        User update = userService.updateUser(user);
-        return new ResponseEntity<>(update,HttpStatus.OK);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userEdit){
+        User user = userService.findById(id);
+        user.setUserName(userEdit.getUserName());
+        user.setEmail(userEdit.getEmail());
+        user.setBirthDay(userEdit.getBirthDay());
+        user.setHomeTown(userEdit.getHomeTown());
+        user.setGender(userEdit.getGender());
+        User update = userRepository.save(user);
+        return ResponseEntity.ok(update);
     }
     @GetMapping("/getuser/{name}")
     public ResponseEntity<User> getUser(@PathVariable("name") String name){
         User user = userService.findUserByUserName(name);
         return new ResponseEntity<>(user , HttpStatus.OK);
+    }
+
+    @GetMapping("/pageje")
+    public ResponseEntity<List<User>> getAllJe(@RequestParam(value = "pageNo") int pageNo,@RequestParam(value = "pageSize") int pageSize ,   @RequestParam(value = "sort", required = false) String sort) {
+        Page<User> page = userServiceImpl.getAllJe(pageNo, pageSize, sort);
+        return ResponseEntity.ok().body(page.getContent());
     }
 
 }

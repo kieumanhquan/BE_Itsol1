@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -25,10 +26,10 @@ public interface UserRepository extends JpaRepository<User, Long>, UserRepositor
     User findById(int id);
 
     @Query("select u from Users u join u.roles r where r.id = 2")
-    List<User> getJE();
+    Page<User> getJE(Pageable pageable);
 
 
-    @Query("select u from Users u join u.roles r where r.id = 2 ORDER BY u.name ASC ")
+    @Query("select u from Users u join u.roles r where r.id = 2 ")
     List<User> getJESortByName();
 
 
@@ -44,4 +45,5 @@ public interface UserRepository extends JpaRepository<User, Long>, UserRepositor
 
     @Query("select u from Users u join u.roles r where r.id = 2")
     List<User> findJE();
+
 }

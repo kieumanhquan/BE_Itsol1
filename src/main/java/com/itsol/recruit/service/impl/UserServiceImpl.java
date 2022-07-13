@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -92,13 +93,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(User user) {
-        return userRepository.save(user);
+    public Page<User> getJE(Pageable pageable) {
+        return null;
     }
 
-    @Override
-    public List<User> getJE() {
-        return userRepository.getJE();
+//    @Override
+//    public List<User> getJE() {
+//        return userRepository.getJE();
+//    }
+
+    public Page<User> getAllJe(int pageNo, int pageSize, String sort) {
+        Pageable pageable;
+        if (sort == null) {
+            pageable = PageRequest.of(pageNo, pageSize);
+        } else {
+            pageable = PageRequest.of(pageNo,pageSize,Sort.by(sort));
+        }
+        return  userRepository.getJE(pageable);
     }
 
 
