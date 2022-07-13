@@ -11,7 +11,6 @@ import com.itsol.recruit.repository.RoleRepository;
 import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.mapper.UserMapper;
-import com.itsol.recruit.web.vm.ChangePassVM;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -45,33 +44,53 @@ public class AuthenticateServiceImpl implements AuthenticateService {
     }
 
 
+    @Override
+    public User signup(UserDTO dto) {
+        try {
+            Set<Role> roles = roleRepository.findByCode(Constants.Role.USER);
+            User user = userMapper.toEntity(dto);
+            user.setDelete(false);
+            user.setActive(false);
+            user.setActive(false);
+            user.setDelete(false);
+            user.setRoles(roles);
+//
+            userRepository.save(user);
+//        OTP otp = userService.generateOTP(user);
+//        String linkActive = accountActivationConfig.getActivateUrl() + user.getId();
+//        emailService.sendSimpleMessage(user.getEmail(),
+//                "Link active account",
+//                "<a href=\" " + linkActive + "\">Click vào đây để kích hoạt tài khoản</a>");
+            return user;
+        } catch (Exception e) {
+            log.error("cannot save to database");
+            return null;
+        }
+
+    }
 
     @Override
-    public String changePassword(ChangePassVM changePassVM) {
-        String notfound = "notfound";
-        String success = "success";
-        String expired = "exprired";
-        String fail = "fail";
-        User user = userRepository.findUserByEmail(changePassVM.getEmail());
-        if (!changePassVM.getPassword().matches("(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>\"'\\;:{\\}\\[\\]\\|\\+\\-\\=\\_\\)\\(\\)\\`\\/\\\\\\]])[A-Za-z0-9d$@].{7,}")) {
-            return notfound;
-        }
-        if (user == null) {
-            return expired;
-        } else {
-            OTP optdb = otpRepository.findByUser(user);
-            if (optdb.expired()) {
-                return expired;
-            } else if (!optdb.getCode().equals(changePassVM.getCode())) {
-                return fail;
-            } else if (optdb.getCode().equals(changePassVM.getCode())) {
-                user.setPassword(passwordEncoder.encode(changePassVM.getPassword()));
+    public String forgotPassword(String code, UserDTO userDto) {
+        String message;
+        User user = userRepository.findUserByEmail(userDto.getEmail());
+        if (user != null) {
+
+            OTP otp = otpRepository.findByUser(user);
+            if (otp.expired()) {
+                message = "Mã otp đã hết hạn";
+            } else if (otp.getCode().equals(code)) {
+                user.setPassword(passwordEncoder.encode(userDto.getPassword()));
                 userRepository.save(user);
-                return success;
+                message = "Đổi mật khẩu thành công";
             } else {
-                return expired;
+                message = "Mã otp không chính xác";
             }
+        } else {
+            message = "Email không tồn tại";
         }
+        return message;
+
     }
+
 
 }
