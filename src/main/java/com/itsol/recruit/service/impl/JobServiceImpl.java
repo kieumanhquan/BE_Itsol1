@@ -3,10 +3,13 @@ package com.itsol.recruit.service.impl;
 import com.itsol.recruit.dto.JobDTO;
 import com.itsol.recruit.entity.Job;
 import com.itsol.recruit.repository.JobRepository;
-import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.service.JobService;
 import com.itsol.recruit.service.mapper.JobMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -64,6 +67,11 @@ public class JobServiceImpl implements JobService {
         return jobRepository.save(job);
     }
 
+
+    public Job update(JobDTO jobDTO) {
+        Job job = jobMapper.toEntity(jobDTO);
+        return job;
+    }
 
     @Override
     public boolean delete(Long id) {
