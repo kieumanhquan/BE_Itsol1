@@ -5,7 +5,6 @@ import com.itsol.recruit.entity.OTP;
 import com.itsol.recruit.entity.User;
 import com.itsol.recruit.repository.OTPRepository;
 import com.itsol.recruit.repository.UserRepository;
-import com.itsol.recruit.service.mapper.EmailService;
 import com.itsol.recruit.service.mapper.OTPService;
 import org.springframework.stereotype.Service;
 

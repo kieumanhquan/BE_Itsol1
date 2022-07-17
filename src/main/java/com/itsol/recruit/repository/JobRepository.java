@@ -13,6 +13,7 @@ import java.util.Optional;
 public interface JobRepository extends JpaRepository<Job, Long>, JobRepositoryExt {
 
     Job findJobByName(String name);
+    Job findJobById(Long id);
 
     List<Job> findJobsBySkills(String skills);
 

@@ -22,7 +22,7 @@ public interface UserRepository extends JpaRepository<User, Long>, UserRepositor
     User findByUserName(String userName);
 
 
-    User findById(int id);
+    User findUserById(Long id);
 
     @Query("select u from Users u join u.roles r where r.id = 2")
     List<User> getJE();

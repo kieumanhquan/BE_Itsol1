@@ -5,7 +5,6 @@ import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity(name = "job_register")
@@ -30,9 +29,12 @@ public class JobRegister{
     @Column(name = "date_register")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date dateRegister;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @Column(name = "date_interview")
     private Date dateInterview;
+
+    @Column(name = "time_interview")
+    private Integer timeInterview;
 
     @Column(name = "method_interview")
     private String methodInterview;
