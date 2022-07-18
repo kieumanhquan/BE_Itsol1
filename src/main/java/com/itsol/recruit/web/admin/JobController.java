@@ -4,6 +4,7 @@ import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.dto.JobDTO;
 import com.itsol.recruit.entity.Job;
 import com.itsol.recruit.service.JobService;
+import com.itsol.recruit.service.impl.JobServiceImpl;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,11 +23,22 @@ public class JobController {
         this.jobService = jobService;
     }
 
+/*
     @GetMapping(value = "/job")
     public ResponseEntity<List<Job>> getAllJob(){
         return  ResponseEntity.ok().body( jobService.getAllJob());
     }
+*/
 
+    @GetMapping("/job")
+    public ResponseEntity<List<Job>> getAllJobRegister(@RequestParam(value = "pageNo") int pageNo,
+                                                      @RequestParam(value = "pageSize") int pageSize,
+                                                       @RequestParam(value = "sort", required = false) String sort,
+                                                      @RequestParam(value = "type" ,required = false) boolean type) {
+
+        Page<Job> page = jobService.getAllJob(pageNo, pageSize, sort, type);
+        return ResponseEntity.ok().body(page.getContent());
+    }
     @GetMapping(value = "/job/{id}")
     public ResponseEntity<Job> findJobById(@PathVariable("id") Long id){
         return  ResponseEntity.ok().body(jobService.findById(id));
@@ -37,8 +49,8 @@ public class JobController {
     }
 
     @PutMapping(value = "/job/update/{id}")
-    public ResponseEntity<Job> updateJob(@RequestBody JobDTO jobDTO) {
-        return ResponseEntity.ok().body(jobService.update(jobDTO));
+    public ResponseEntity<Job> updateJob(@PathVariable Long id, @RequestBody Job job) {
+        return ResponseEntity.ok().body(jobService.update(id, job));
     }
 
     @DeleteMapping(value = "/job/delete/{id}")
