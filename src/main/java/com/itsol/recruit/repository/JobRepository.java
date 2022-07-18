@@ -9,10 +9,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface JobRepository extends JpaRepository<Job, Long>, JobRepositoryExt {
+
+    @Query("select j from job j")
+    Page<Job> findJobPage(Pageable pageable);
 
     Job findJobByName(String name);
 

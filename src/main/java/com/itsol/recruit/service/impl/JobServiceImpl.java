@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResourceAccessException;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -35,8 +36,18 @@ public class JobServiceImpl implements JobService {
     JobMapper jobMapper;
 
     @Override
-    public List<Job> getAllJob() {
-        return jobRepository.findAll();
+    public Page<Job> getAllJob(int page, int pageSize, String sort, boolean type) {
+        Pageable pageable;
+        if (sort == null) {
+            pageable = PageRequest.of(page, pageSize);
+        } else {
+            if (type) {
+                pageable = PageRequest.of(page, pageSize, Sort.by(sort).ascending());
+            } else {
+                pageable = PageRequest.of(page, pageSize, Sort.by(sort).descending());
+            }
+        }
+        return jobRepository.findJobPage(pageable);
     }
 
 
@@ -67,10 +78,37 @@ public class JobServiceImpl implements JobService {
         return jobRepository.save(job);
     }
 
+    @Override
+    public Job update(Long id, Job jobUpdate) {
+        Job job = jobRepository.findById(id)
+                .orElseThrow(() -> new ResourceAccessException("Không tồn tại công việc này với id: " + id));
 
-    public Job update(JobDTO jobDTO) {
-        Job job = jobMapper.toEntity(jobDTO);
-        return job;
+        job.setName(jobUpdate.getName());
+        job.setJobPosition(jobUpdate.getJobPosition());
+        job.setNumberExperience(jobUpdate.getNumberExperience());
+        job.setWorkingForm(jobUpdate.getWorkingForm());
+        job.setAddressWork(jobUpdate.getAddressWork());
+        job.setAcademicLevel(jobUpdate.getAcademicLevel());
+        job.setRank(jobUpdate.getRank());
+        job.setQtyPerson(jobUpdate.getQtyPerson());
+        job.setStartRecruitmentDate(jobUpdate.getStartRecruitmentDate());
+        job.setDueDate(jobUpdate.getDueDate());
+        job.setSkills(jobUpdate.getSkills());
+        job.setDescription(jobUpdate.getDescription());
+        job.setInterest(jobUpdate.getInterest());
+        job.setJobRequirement(jobUpdate.getJobRequirement());
+        job.setSalaryMax(jobUpdate.getSalaryMax());
+        job.setSalaryMin(jobUpdate.getSalaryMin());
+        job.setContact(jobUpdate.getContact());
+        job.setCreate(jobUpdate.getCreate());
+        job.setCreateDate(jobUpdate.getCreateDate());
+        job.setUpdate(jobUpdate.getUpdate());
+        job.setUpdateDate(jobUpdate.getUpdateDate());
+        job.setStatus(jobUpdate.getStatus());
+        job.setViews(jobUpdate.getViews());
+        job.setDelete(false);
+        
+        return jobRepository.save(job);
     }
 
     @Override
