@@ -30,6 +30,7 @@ public interface JobRepository extends JpaRepository<Job, Long>, JobRepositoryEx
     List<Job> findJobsByNumberExperience(String numberExperience);
 
     List<Job> findJobsByAcademicLevel(Long academicLevelId);
+    List<Job> findAll();
 
 
 }
