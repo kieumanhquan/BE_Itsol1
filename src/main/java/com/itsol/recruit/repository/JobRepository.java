@@ -2,6 +2,8 @@ package com.itsol.recruit.repository;
 
 import com.itsol.recruit.entity.Job;
 import com.itsol.recruit.repository.repoext.JobRepositoryExt;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -26,6 +28,7 @@ public interface JobRepository extends JpaRepository<Job, Long>, JobRepositoryEx
     List<Job> findJobsByNumberExperience(String numberExperience);
 
     List<Job> findJobsByAcademicLevel(Long academicLevelId);
+    List<Job> findAll();
 
 
 }

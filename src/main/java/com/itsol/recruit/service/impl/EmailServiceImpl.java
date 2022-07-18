@@ -37,6 +37,11 @@ public class EmailServiceImpl implements EmailService {
         }
     }
 
+    @Override
+    public String buildActiveLink(String url) {
+        return null;
+    }
+
     public String buildOtpEmail(String name, String otp) {
         return "<p>Xin chào " + name + ".Nhập mã OTP như dưới đây dể đổi mật khẩu </p>"
                 + "<br>" + "<h3>" + otp + "</h3>" + "<br>"

@@ -1,8 +1,7 @@
 package com.itsol.recruit.web.admin.file;
 
 import com.itsol.recruit.dto.JobRegisterDTO;
-import com.itsol.recruit.service.jobregister.JobRegisterService;
-import com.itsol.recruit.web.vm.PageVM;
+import com.itsol.recruit.service.impl.jobregister.JobRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +21,10 @@ public class JobRegisterController {
 
     @GetMapping("/api/job-register")
     public ResponseEntity<List<JobRegisterDTO>> getAllJobRegister(@RequestParam(value = "pageNo") int pageNo,
-    @RequestParam(value = "pageSize") int pageSize ,   @RequestParam(value = "sort", required = false) String sort) {
+                                                                  @RequestParam(value = "pageSize") int pageSize, @RequestParam(value = "sort", required = false) String sort,
+                                                                  @RequestParam(value = "type" ,required = false) boolean type) {
 
-        Page<JobRegisterDTO> page = jobRegisterService.getAllJobRegister(pageNo,pageSize,sort);
+        Page<JobRegisterDTO> page = jobRegisterService.getAllJobRegister(pageNo, pageSize, sort, type);
         return ResponseEntity.ok().body(page.getContent());
     }
 
