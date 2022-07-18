@@ -1,4 +1,4 @@
-package com.itsol.recruit.web.auth;
+package com.itsol.recruit.web.user.auth;
 
 import antlr.StringUtils;
 import com.itsol.recruit.core.Constants;
@@ -12,7 +12,7 @@ import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
 import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
-import com.itsol.recruit.service.impl.jobregister.email.EmailService;
+import com.itsol.recruit.service.emailRegister.EmailService;
 import com.itsol.recruit.service.mapper.OTPService;
 import com.itsol.recruit.service.mapper.UserMapper;
 import com.itsol.recruit.web.vm.ChangePassVM;
@@ -48,18 +48,19 @@ public class AuthenticateController {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
     private final UserService userService;
-
+    UserMapper userMapper;
+    EmailService emailService;
     private final TokenProvider tokenProvider;
 
     private final OTPService otpService;
 
-    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService) {
-        this.authenticateService = authenticateService;
-        this.authenticationManagerBuilder = authenticationManagerBuilder;
-        this.userService = userService;
-        this.tokenProvider = tokenProvider;
-        this.otpService = otpService;
-    }
+//    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService) {
+//        this.authenticateService = authenticateService;
+//        this.authenticationManagerBuilder = authenticationManagerBuilder;
+//        this.userService = userService;
+//        this.tokenProvider = tokenProvider;
+//        this.otpService = otpService;
+//    }
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody UserDTO dto) {

@@ -28,7 +28,7 @@ public interface JobRepository extends JpaRepository<Job, Long>, JobRepositoryEx
     List<Job> findJobsByNumberExperience(String numberExperience);
 
     List<Job> findJobsByAcademicLevel(Long academicLevelId);
-    Page<Job> findAll(Pageable pageable);
+    List<Job> findAll();
 
 
 }

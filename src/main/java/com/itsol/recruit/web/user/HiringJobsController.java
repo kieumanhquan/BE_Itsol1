@@ -1,6 +1,8 @@
 package com.itsol.recruit.web.user;
 
 import com.itsol.recruit.core.Constants;
+import com.itsol.recruit.dto.AllJobDTO;
+import com.itsol.recruit.dto.JobTypeDTO;
 import com.itsol.recruit.entity.Job;
 import com.itsol.recruit.service.HiringJobsService;
 import com.itsol.recruit.service.impl.HiringJobsServiceImpl;
@@ -36,12 +38,23 @@ public class HiringJobsController {
     }
 
     @GetMapping(value = "itsol_recruitment")
-    public ResponseEntity<List<Job>> Hiring_Jobs (){
-        return new ResponseEntity<>(hiringJobsService.getAllJob(), HttpStatus.OK);
+    public ResponseEntity<AllJobDTO> Hiring_Jobs (@RequestParam(name = "pageNumber") int pageNumber){
+        return new ResponseEntity<>(hiringJobsService.getOnePageJobDTO(pageNumber), HttpStatus.OK);
     }
+
     @PostMapping(value = "/searchJob")
-    public ResponseEntity<?> searchJob(@RequestBody SearchJobVM searchVM){
+    public ResponseEntity<?> searchJob(@RequestBody SearchJobVM searchVM, @RequestParam(name = "pageNumber") int page){
         System.out.println(searchVM);
-        return  new ResponseEntity<>(hiringJobsServiceImpl.searchJob(searchVM),HttpStatus.OK);
+        try{
+            return  new ResponseEntity<>(hiringJobsServiceImpl.searchJob(searchVM,page),HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    @GetMapping(value = "/viewMoreJob/{typeJob}")
+    public ResponseEntity<JobTypeDTO> seeMoreJob(@PathVariable String typeJob, @RequestParam(name = "pageNumber")int pageNumber){
+        return new ResponseEntity<>(hiringJobsServiceImpl.getMoreJobDTO(typeJob,pageNumber),HttpStatus.OK);
     }
 }
