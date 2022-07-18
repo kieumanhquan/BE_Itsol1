@@ -12,8 +12,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -76,7 +78,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void activeAccount(Long id) {
-
         User user = userRepository.getById(id);
         user.setActive(true);
         userRepository.save(user);
@@ -95,6 +96,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public Page<User> getJE(Pageable pageable) {
         return null;
+    }
+
+    @Override
+    public User deactive(Long id) {
+        User user = findById(id);
+        if(user.isActive() == true){
+            user.setActive(false);
+        }else {
+            user.setActive(true);
+        }
+        return userRepository.save(user);
     }
 
 //    @Override

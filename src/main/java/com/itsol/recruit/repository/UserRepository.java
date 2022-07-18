@@ -28,6 +28,8 @@ public interface UserRepository extends JpaRepository<User, Long>, UserRepositor
     @Query("select u from Users u join u.roles r where r.id = 2")
     Page<User> getJE(Pageable pageable);
 
+    @Query("select u from Users u join u.roles r where r.id = 2")
+    List<User> getJE();
 
     @Query("select u from Users u join u.roles r where r.id = 2 ")
     List<User> getJESortByName();
