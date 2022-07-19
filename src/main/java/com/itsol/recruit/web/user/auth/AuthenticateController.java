@@ -1,13 +1,10 @@
-package com.itsol.recruit.web.auth;
+package com.itsol.recruit.web.user.auth;
 
-import antlr.StringUtils;
 import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.dto.ResponseDTO;
 import com.itsol.recruit.dto.UserDTO;
 import com.itsol.recruit.entity.Role;
 import com.itsol.recruit.entity.User;
-import com.itsol.recruit.repository.RoleRepository;
-import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
 import com.itsol.recruit.service.AuthenticateService;
@@ -21,6 +18,7 @@ import io.swagger.annotations.Api;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +27,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -39,11 +36,10 @@ import java.util.*;
 @RequestMapping(value = Constants.Api.Path.AUTH)
 @Api(tags = "Auth")
 @CrossOrigin(origins = "*", maxAge = 3600)
-@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AuthenticateController {
 
-    private final AuthenticateService authenticateService;
+     private final AuthenticateService authenticateService;
 
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
@@ -52,13 +48,17 @@ public class AuthenticateController {
     private final TokenProvider tokenProvider;
 
     private final OTPService otpService;
+    private final UserMapper userMapper;
+    private final EmailService emailService;
 
-    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService) {
+    public AuthenticateController(AuthenticateService authenticateService, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService, UserMapper userMapper, EmailService emailService) {
         this.authenticateService = authenticateService;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userService = userService;
         this.tokenProvider = tokenProvider;
         this.otpService = otpService;
+        this.userMapper = userMapper;
+        this.emailService = emailService;
     }
 
     @PostMapping("/signup")
@@ -125,10 +125,10 @@ public class AuthenticateController {
         return ResponseEntity.ok().body(Collections.singletonMap("message", otpService.sendOTP(email)));
     }
 
-    @PostMapping("/change-password")
-    public ResponseEntity<Object> changePassword(@Valid @RequestBody ChangePassVM changePassVM) {
-        return ResponseEntity.ok().body(Collections.singletonMap("change", authenticateService.changePassword(changePassVM)));
-    }
+//    @PostMapping("/change-password")
+//    public ResponseEntity<Object> changePassword(@Valid @RequestBody ChangePassVM changePassVM) {
+//        return ResponseEntity.ok().body(Collections.singletonMap("change", authenticateService.changePassword(changePassVM)));
+//    }
 
     @GetMapping("/je")
     public ResponseEntity<List<User>> getJE () {
@@ -136,11 +136,11 @@ public class AuthenticateController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @GetMapping("/je/sortByName")
-    public ResponseEntity<List<User>> getJEByName () {
-        List<User> users = userRepository.getJESortByName();
-        return new ResponseEntity<>(users, HttpStatus.OK);
-    }
+//    @GetMapping("/je/sortByName")
+//    public ResponseEntity<List<User>> getJEByName () {
+//        List<User> users = userRepository.getJESortByName();
+//        return new ResponseEntity<>(users, HttpStatus.OK);
+//    }
     @PutMapping("/update")
     public ResponseEntity<User> updateUser(@RequestBody User user){
         User update = userService.updateUser(user);
