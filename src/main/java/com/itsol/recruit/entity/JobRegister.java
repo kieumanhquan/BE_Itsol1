@@ -47,7 +47,9 @@ public class JobRegister{
     private StatusJobRegister statusJobRegister;
 
     @Column(name = "cv_file")
-    private String cv;
+    @OneToOne
+    @JoinColumn(name = "name")
+    private FileDB fileDB;
 
     @Column(name = "media_type")
     private String mediaType;

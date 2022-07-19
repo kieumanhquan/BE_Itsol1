@@ -37,7 +37,9 @@ public class JobRegisterService {
         }
         return jobRegister.findJobRegister(pageable).map(this::convertEntityToDTO);
     }
-
+    public int totalRecord(){
+        return jobRegister.findAll().size();
+    }
     public JobRegisterDTO convertEntityToDTO(JobRegister jobRegister) {
         JobRegisterDTO fileRecruitDTO = new JobRegisterDTO();
         fileRecruitDTO.setId(jobRegister.getId());

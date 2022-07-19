@@ -6,6 +6,7 @@ import org.springframework.lang.Nullable;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.sql.Time;
 import java.util.Date;
 
 @Data
@@ -18,6 +19,6 @@ public class BookInterVM {
     @Nullable
     String mediaType;
     @Nullable
-    String timeInterview;
+    Time timeInterview;
 
 }

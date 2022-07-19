@@ -53,7 +53,7 @@ public class EmailServiceImpl {
             mimeMessageHelper.setFrom(sender);
             mimeMessageHelper.setTo(jobRegister.getUser().getEmail());
             mimeMessageHelper.setText(email, true);
-            mimeMessageHelper.setSubject("Confirm OTP");
+            mimeMessageHelper.setSubject("Kết quả phỏng vấn");
             javaMailSender.send(mimeMessage);
             return true;
         } catch (MessagingException e) {
@@ -67,7 +67,7 @@ public class EmailServiceImpl {
                 "\n" +
                 "<br> Công ty ITSOL rất vui và vinh hạnh khi nhận được hồ sơ ứng tuyển của anh/chị vào vị trí ABC. Chúng tôi đã nhận được CV của anh/chị và mong muốn có một cuộc phỏng vấn để trao đổi trực tiếp về kiến thức cũng như công việc mà anh/chị đã ứng tuyển.\n" +
                 "\n" +
-                "<br>Thời gian phỏng vấn dự kiến vào lúc" + sendJobRegisVm.getTimeInterview()+" ngày "+sendJobRegisVm.getDateInterview()+ "qua công cụ" + sendJobRegisVm.getMediaType()+" (chúng tôi sẽ gửi lại link sau khi anh/chị xác nhận đồng ý phỏng vấn bằng các reply lại mail này).\n" +
+                "<br>Thời gian phỏng vấn dự kiến vào lúc" + sendJobRegisVm.getTimeInterview()+", "+sendJobRegisVm.getDateInterview()+ "qua công cụ " + sendJobRegisVm.getMediaType()+" (chúng tôi sẽ gửi lại link sau khi anh/chị xác nhận đồng ý phỏng vấn bằng các reply lại mail này).\n" +
                 "\n" +
                 "<br>Chúng tôi rất hy vọng anh/chị sớm phản hồi và mong rằng chúng ta sẽ được hợp tác cùng nhau trong tương lai.\n" +
                 "\n" +
