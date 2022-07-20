@@ -114,12 +114,16 @@ public class UserServiceImpl  implements UserService {
 //        return userRepository.getJE();
 //    }
 
-    public Page<User> getAllJe(int pageNo, int pageSize, String sort) {
+    public Page<User> getAllJe(int pageNo, int pageSize, String sort , boolean type) {
         Pageable pageable;
         if (sort == null) {
             pageable = PageRequest.of(pageNo, pageSize);
         } else {
-            pageable = PageRequest.of(pageNo,pageSize,Sort.by(sort));
+            if (type) {
+                pageable = PageRequest.of(pageNo, pageSize, Sort.by(sort).ascending());
+            } else {
+                pageable = PageRequest.of(pageNo, pageSize, Sort.by(sort).descending());
+            }
         }
         return  userRepository.getJE(pageable);
     }

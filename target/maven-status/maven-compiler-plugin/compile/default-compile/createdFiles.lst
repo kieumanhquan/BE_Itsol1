@@ -8,6 +8,8 @@ com\itsol\recruit\core\Constants$Api$Path$Auth.class
 com\itsol\recruit\repository\ProfilesRepository.class
 com\itsol\recruit\service\impl\RankServiceImpl.class
 com\itsol\recruit\web\vm\LoginVM.class
+com\itsol\recruit\service\ImageRepository.class
+com\itsol\recruit\service\ProfileService.class
 com\itsol\recruit\security\jwt\JWTFilter.class
 com\itsol\recruit\web\admin\file\FileDownloadController.class
 com\itsol\recruit\web\admin\AcademicLevelController.class
@@ -27,6 +29,7 @@ com\itsol\recruit\repository\RankRepository.class
 com\itsol\recruit\security\SecurityUtils.class
 com\itsol\recruit\web\user\CompanyIntroController.class
 com\itsol\recruit\service\impl\WorkingFormServiceImpl.class
+com\itsol\recruit\entity\Profile.class
 com\itsol\recruit\repository\AuthenticateRepository.class
 com\itsol\recruit\repository\UserRepository.class
 com\itsol\recruit\service\UserService.class
@@ -59,6 +62,7 @@ com\itsol\recruit\web\admin\WorkingFormController.class
 com\itsol\recruit\entity\User.class
 com\itsol\recruit\entity\WorkingForm.class
 com\itsol\recruit\web\admin\file\FileUploadController.class
+com\itsol\recruit\util\ImageUtil.class
 com\itsol\recruit\service\impl\jobregister\JobRegisterService.class
 com\itsol\recruit\core\Constants.class
 com\itsol\recruit\service\impl\CompanyIntroServiceImpl.class
@@ -66,6 +70,7 @@ com\itsol\recruit\service\impl\jobregister\DownloadFileService.class
 com\itsol\recruit\repository\StatusJobRepository.class
 com\itsol\recruit\ws\DataHandler.class
 com\itsol\recruit\dto\AllJobDTO.class
+com\itsol\recruit\entity\Image.class
 com\itsol\recruit\security\UserNotActivatedException.class
 com\itsol\recruit\service\impl\JobPositionServiceImpl.class
 com\itsol\recruit\config\SwaggerConfiguration.class
@@ -74,6 +79,7 @@ com\itsol\recruit\entity\Profiles.class
 com\itsol\recruit\web\vm\Hello.class
 com\itsol\recruit\entity\Rank.class
 com\itsol\recruit\service\CompanyIntroEditService.class
+com\itsol\recruit\dto\ReponseDTO.class
 com\itsol\recruit\dto\JobRegisterDTO.class
 com\itsol\recruit\entity\Company$CompanyBuilder.class
 com\itsol\recruit\repository\repoext\UserRepositoryExt.class
@@ -81,6 +87,7 @@ com\itsol\recruit\dto\FileUploadDTO.class
 com\itsol\recruit\service\mapper\EntityMapper.class
 com\itsol\recruit\core\Constants$Api$Path$Admin.class
 com\itsol\recruit\service\CompanyIntroService.class
+com\itsol\recruit\service\impl\ImageServiceImp.class
 com\itsol\recruit\config\SecurityConfig.class
 com\itsol\recruit\service\impl\EmailServiceImpl.class
 com\itsol\recruit\service\impl\jobregister\UploadFileService.class
@@ -117,9 +124,11 @@ com\itsol\recruit\service\mapper\UserMapper.class
 com\itsol\recruit\entity\StatusJob.class
 com\itsol\recruit\core\Constants$OTP.class
 com\itsol\recruit\service\JobPositionService.class
+com\itsol\recruit\service\impl\ProfileImp.class
 com\itsol\recruit\service\mapper\EmailService.class
 com\itsol\recruit\web\user\HiringJobsController.class
 com\itsol\recruit\core\Constants$Role.class
+com\itsol\recruit\entity\Image$ImageBuilder.class
 com\itsol\recruit\web\vm\PageVM.class
 com\itsol\recruit\entity\Company.class
 com\itsol\recruit\repository\HiringJobRepository.class
