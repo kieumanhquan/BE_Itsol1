@@ -3,8 +3,7 @@ package com.itsol.recruit.web.user.auth;
 import com.itsol.recruit.core.Constants;
 import com.itsol.recruit.dto.ResponseDTO;
 import com.itsol.recruit.dto.UserDTO;
-import com.itsol.recruit.entity.Role;
-import com.itsol.recruit.entity.User;
+import com.itsol.recruit.entity.*;
 import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
@@ -12,11 +11,12 @@ import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
 import com.itsol.recruit.service.emailRegister.EmailService;
 import com.itsol.recruit.service.impl.AuthenticateServiceImpl;
+import com.itsol.recruit.service.impl.ImageServiceImp;
+import com.itsol.recruit.service.impl.ProfilesImp;
 import com.itsol.recruit.service.impl.UserServiceImpl;
 //import com.itsol.recruit.service.jobregister.email.EmailService;
 import com.itsol.recruit.service.mapper.OTPService;
 import com.itsol.recruit.service.mapper.UserMapper;
-import com.itsol.recruit.web.vm.ChangePassVM;
 import com.itsol.recruit.web.vm.LoginVM;
 import io.swagger.annotations.Api;
 import lombok.AccessLevel;
@@ -32,9 +32,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.*;
 
 @RestController
@@ -44,11 +46,10 @@ import java.util.*;
 //@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AuthenticateController {
-//    @Autowired
-//    private ImgRepository imgRepository;
     UserServiceImpl userServiceImpl;
-
+    ImageServiceImp imageServiceImp;
     UserRepository userRepository;
+    ProfilesImp profilesImp;
 
      private final AuthenticateService authenticateService;
 
@@ -64,11 +65,15 @@ public class AuthenticateController {
     private final EmailService emailService;
     private final UserMapper userMapper;
 
-    public AuthenticateController(AuthenticateService authenticateService, UserServiceImpl userServiceImpl, UserRepository userRepository,
+    public AuthenticateController(AuthenticateService authenticateService, ImageServiceImp imageServiceImp, UserServiceImpl userServiceImpl, UserRepository userRepository, ProfilesImp profilesImp,
     AuthenticateServiceImpl authenticateServiceImpl, AuthenticationManagerBuilder authenticationManagerBuilder,
     UserService userService, TokenProvider tokenProvider, OTPService otpService, EmailService emailService, UserMapper userMapper) {
         this.userServiceImpl = userServiceImpl;
+        this.imageServiceImp = imageServiceImp;
         this.userRepository = userRepository;
+        this.profilesImp = profilesImp;
+
+
         this.authenticateServiceImpl = authenticateServiceImpl;
         this.authenticateService = authenticateService;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
@@ -165,6 +170,7 @@ public class AuthenticateController {
         User user = userService.findById(id);
         if(user != null){
             user.setUserName(userEdit.getUserName());
+//            user.setAvatarName(userEdit.getAvatarName());
             user.setEmail(userEdit.getEmail());
             user.setBirthDay(userEdit.getBirthDay());
             user.setHomeTown(userEdit.getHomeTown());
@@ -186,8 +192,8 @@ public class AuthenticateController {
     }
 
     @GetMapping("/pageje")
-    public ResponseEntity<List<User>> getAllJe(@RequestParam(value = "pageNo") int pageNo,@RequestParam(value = "pageSize") int pageSize ,   @RequestParam(value = "sort", required = false) String sort) {
-        Page<User> page = userServiceImpl.getAllJe(pageNo, pageSize, sort);
+    public ResponseEntity<List<User>> getAllJe(@RequestParam(value = "pageNo") int pageNo,@RequestParam(value = "pageSize") int pageSize ,   @RequestParam(value = "sort", required = false) String sort, @RequestParam(value = "type", required = false) boolean type ) {
+        Page<User> page = userServiceImpl.getAllJe(pageNo, pageSize, sort, type);
         return ResponseEntity.ok().body(page.getContent());
     }
     @GetMapping("/user/{id}")
@@ -228,7 +234,30 @@ public class AuthenticateController {
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public User cretead(@RequestParam MultipartFile )
+   @PostMapping("/upload/image")
+    public ResponseEntity<ResponseDTO> upload(@RequestParam("image") MultipartFile file){
+        try{
+            ResponseDTO responseDTO = imageServiceImp.upload(file);
+            responseDTO.setStatus(HttpStatus.OK);
+            return ResponseEntity.ok().body(responseDTO);
+        } catch (IOException e) {
+            return ResponseEntity.ok().body(new ResponseDTO(HttpStatus.NOT_FOUND, "Not Found"));
+        }
+   }
+
+   @GetMapping("/image/{name}")
+    public ResponseEntity<Image> getImage(@PathVariable("name") String name){
+       try {
+           return ResponseEntity.ok().body(imageServiceImp.getImageByName(name));
+       } catch (IOException e) {
+           throw new RuntimeException(e);
+
+       }
+   }
+   @GetMapping("/profile")
+    public ResponseEntity<Profiles> getProfile(@PathVariable("id") Long id){
+        Profiles profiles = profilesImp.findProfindByUser(id);
+        return new ResponseEntity<>(profiles, HttpStatus.OK);
+   }
+
 }

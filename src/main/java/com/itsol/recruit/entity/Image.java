@@ -1,23 +1,32 @@
-//package com.itsol.recruit.entity;
-//
-//import javax.persistence.*;
-//
-//@Entity
-//@Table(name="image")
-//public class Image {
-//    @Id
-//    @Column(nullable = false)
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IMAGE_SEQ")
-//    @SequenceGenerator(name = "IMAGE_SEQ", sequenceName = "IMAGE_SEQ", allocationSize = 1, initialValue = 1)
-//    private Long id;
-//
-//    private Long userId;
-//    @Column(name= "name")
-//    private String name;
-//
-//    @Column(name = "type")
-//    private String types;
-//
-//    @Column(name = "image", unique = false, nullable = false, length = 100000)
-//    private byte[] image;
-//}
+package com.itsol.recruit.entity;
+
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "image")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class Image {
+
+    @Id
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "type")
+    private String type;
+
+    @Column(name = "image" , unique = false, nullable = false, length = 100000)
+    private byte[] image;
+
+    private Long userId;
+
+}

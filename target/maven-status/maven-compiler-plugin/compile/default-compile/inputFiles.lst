@@ -15,6 +15,7 @@ C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\Cha
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\file\FileUploadController.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\AdminController.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Image.java
+C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Profile.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\StatusServiceImpl.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\JobController.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\repoext\JobRepositoryExt.java
@@ -22,6 +23,7 @@ C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Use
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\RankService.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\FileUploadDTO.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\UserRepository.java
+C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\ReponseDTO.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Job.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\OTPServiceImpl.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\RankController.java
@@ -34,6 +36,7 @@ C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\ma
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\ws\DataHandler.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\JobTypeDTO.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\CompanyIntroEditServiceIml.java
+C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\ProfileService.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\CompanyIntroController.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\OTPService.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\JobService.java
@@ -81,6 +84,7 @@ C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Job
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\SearchJobVM.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\core\ApiResponseEntity.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\AcademicLevelServiceImpl.java
+C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\ProfileImp.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\WorkingFormRepository.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\StatusJobRepository.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\AuthenticateServiceImpl.java
@@ -97,10 +101,12 @@ C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\BaseRepository.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\jwt\TokenProvider.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\StatusJobService.java
+C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\ImageServiceImp.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\WorkingFormServiceImpl.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\UserController.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\RankServiceImpl.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\UserService.java
+C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\util\ImageUtil.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\DetailFileDTO.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\JobRegisterRepository.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\CompanyIntroService.java
@@ -115,3 +121,4 @@ C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\AllJob
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\CompanyIntroEditController.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\HiringJobsService.java
 C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\emailRegister\EmailService.java
+C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\ImageRepository.java
