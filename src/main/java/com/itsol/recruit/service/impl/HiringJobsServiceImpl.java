@@ -79,7 +79,7 @@ public class HiringJobsServiceImpl implements HiringJobsService {
             }
             List<Integer> listPage = new ArrayList<>();
             for(int i = 1; i<= numberPage;i ++) listPage.add(i);
-
+            jobTypeDTO.setListPage(listPage);
 
         }
 
