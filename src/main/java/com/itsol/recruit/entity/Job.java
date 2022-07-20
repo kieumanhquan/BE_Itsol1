@@ -48,11 +48,11 @@ public class Job {
     @Column(name = "qty_person")
     Long qtyPerson;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "start_recruitment_date")
     Date startRecruitmentDate ;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "due_date")
     Date dueDate;
 
@@ -82,7 +82,7 @@ public class Job {
     @JoinColumn(name = "create_id")
     User create;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "create_date")
     Date createDate ;
 

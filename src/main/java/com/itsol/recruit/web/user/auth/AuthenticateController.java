@@ -8,6 +8,7 @@ import com.itsol.recruit.entity.User;
 import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
+import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
 import com.itsol.recruit.service.emailRegister.EmailService;
 import com.itsol.recruit.service.impl.AuthenticateServiceImpl;
@@ -20,6 +21,7 @@ import com.itsol.recruit.web.vm.LoginVM;
 import io.swagger.annotations.Api;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -48,6 +50,7 @@ public class AuthenticateController {
 
     UserRepository userRepository;
 
+     private final AuthenticateService authenticateService;
 
     private final AuthenticateServiceImpl authenticateServiceImpl;
 
@@ -61,11 +64,13 @@ public class AuthenticateController {
     private final EmailService emailService;
     private final UserMapper userMapper;
 
-    public AuthenticateController(UserServiceImpl userServiceImpl, UserRepository userRepository, AuthenticateServiceImpl authenticateServiceImpl, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService, TokenProvider tokenProvider, OTPService otpService, EmailService emailService, UserMapper userMapper) {
+    public AuthenticateController(AuthenticateService authenticateService, UserServiceImpl userServiceImpl, UserRepository userRepository,
+    AuthenticateServiceImpl authenticateServiceImpl, AuthenticationManagerBuilder authenticationManagerBuilder,
+    UserService userService, TokenProvider tokenProvider, OTPService otpService, EmailService emailService, UserMapper userMapper) {
         this.userServiceImpl = userServiceImpl;
         this.userRepository = userRepository;
         this.authenticateServiceImpl = authenticateServiceImpl;
-
+        this.authenticateService = authenticateService;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userService = userService;
         this.tokenProvider = tokenProvider;
