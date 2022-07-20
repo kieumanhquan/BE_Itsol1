@@ -8,6 +8,7 @@ import com.itsol.recruit.entity.User;
 import com.itsol.recruit.repository.UserRepository;
 import com.itsol.recruit.security.jwt.JWTFilter;
 import com.itsol.recruit.security.jwt.TokenProvider;
+import com.itsol.recruit.service.AuthenticateService;
 import com.itsol.recruit.service.UserService;
 import com.itsol.recruit.service.emailRegister.EmailService;
 import com.itsol.recruit.service.impl.AuthenticateServiceImpl;
