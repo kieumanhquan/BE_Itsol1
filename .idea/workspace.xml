@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="716ef610-7ecd-42c1-a223-58d9b9d669ed" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/HiringJobsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/HiringJobsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/JobRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/repository/JobRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/JobService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/JobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/service/impl/JobServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/admin/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsol/recruit/web/admin/JobController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +146,7 @@
       <workItem from="1658108906686" duration="5928000" />
       <workItem from="1658195177645" duration="11652000" />
       <workItem from="1658281610535" duration="12852000" />
+      <workItem from="1658309206303" duration="2745000" />
     </task>
     <servers />
   </component>

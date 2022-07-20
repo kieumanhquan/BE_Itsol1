@@ -54,13 +54,14 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public Job findById(Long id) {
-        return jobRepository.findById(id).get();
+        System.out.println("id " + id);
+        return jobRepository.findJobById(id);
     }
 
-    @Override
-    public Job findJobByName(String name) {
-        return jobRepository.findJobByName(name);
-    }
+//    @Override
+//    public Job findJobByName(String name) {
+//        return jobRepository.findJobByName(name);
+//    }
 
     @Override
     public List<Job> findJobByManyCon(String keyword) {
