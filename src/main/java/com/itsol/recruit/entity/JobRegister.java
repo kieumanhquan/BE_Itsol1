@@ -46,9 +46,8 @@ public class JobRegister{
     @JoinColumn(name = "status_id")
     private StatusJobRegister statusJobRegister;
 
-    @Column(name = "cv_file")
     @OneToOne
-    @JoinColumn(name = "name")
+    @JoinColumn(name = "cv_file")
     private FileDB fileDB;
 
     @Column(name = "media_type")
@@ -60,4 +59,5 @@ public class JobRegister{
     @Column(name = "is_delete")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean isDelete;
+
 }

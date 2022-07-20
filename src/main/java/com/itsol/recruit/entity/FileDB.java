@@ -20,13 +20,8 @@ public class FileDB {
     private String name;
 
     private String type;
-    @Lob
-    @Column(length = 100000)
-    private byte[] data;
 
-    public FileDB(String name, String type, byte[] data) {
-        this.name = name;
-        this.type = type;
-        this.data = data;
-    }
+    @Lob
+    @Column(length = 1000000)
+    private byte[] data;
 }
