@@ -19,10 +19,15 @@ public class JobRegisterController {
     @Autowired
     private JobRegisterService jobRegisterService;
 
+    @GetMapping("/api/total")
+    public int getTotalRecord() {
+        return jobRegisterService.totalRecord();
+    }
+
     @GetMapping("/api/job-register")
     public ResponseEntity<List<JobRegisterDTO>> getAllJobRegister(@RequestParam(value = "pageNo") int pageNo,
                                                                   @RequestParam(value = "pageSize") int pageSize, @RequestParam(value = "sort", required = false) String sort,
-                                                                  @RequestParam(value = "type" ,required = false) boolean type) {
+                                                                  @RequestParam(value = "type", required = false) boolean type) {
 
         Page<JobRegisterDTO> page = jobRegisterService.getAllJobRegister(pageNo, pageSize, sort, type);
         return ResponseEntity.ok().body(page.getContent());

@@ -5,7 +5,6 @@ import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity(name = "job_register")
@@ -30,9 +29,12 @@ public class JobRegister{
     @Column(name = "date_register")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date dateRegister;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @Column(name = "date_interview")
     private Date dateInterview;
+
+    @Column(name = "time_interview")
+    private Integer timeInterview;
 
     @Column(name = "method_interview")
     private String methodInterview;
@@ -44,8 +46,9 @@ public class JobRegister{
     @JoinColumn(name = "status_id")
     private StatusJobRegister statusJobRegister;
 
-    @Column(name = "cv_file")
-    private String cv;
+    @OneToOne
+    @JoinColumn(name = "cv_file")
+    private FileDB fileDB;
 
     @Column(name = "media_type")
     private String mediaType;
@@ -56,4 +59,5 @@ public class JobRegister{
     @Column(name = "is_delete")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean isDelete;
+
 }
