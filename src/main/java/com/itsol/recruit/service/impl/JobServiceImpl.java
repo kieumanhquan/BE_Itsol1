@@ -3,6 +3,7 @@ package com.itsol.recruit.service.impl;
 import com.itsol.recruit.dto.JobDTO;
 import com.itsol.recruit.entity.Job;
 import com.itsol.recruit.repository.JobRepository;
+import com.itsol.recruit.repository.StatusJobRepository;
 import com.itsol.recruit.service.JobService;
 import com.itsol.recruit.service.mapper.JobMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,11 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
+    public List<Job> findJobByManyCon(String keyword) {
+        return jobRepository.findJobByManyCon(keyword);
+    }
+
+    @Override
     public boolean isExistedJob(String name, Long createId) {
         return false;
     }
@@ -74,8 +80,15 @@ public class JobServiceImpl implements JobService {
     @Override
     public Job insert(JobDTO jobDTO) {
 
-        Job job = jobMapper.toEntity(jobDTO);
-        return jobRepository.save(job);
+//        if(jobDTO.getId() == null) {
+            Job job = jobMapper.toEntity(jobDTO);
+            return jobRepository.save(job);
+//        }
+//        else {
+//            Job jobOld = jobRepository.findById(jobDTO.getId()).get();
+//            Job job = jobMapper.toEntity(jobDTO);
+//
+//        }
     }
 
     @Override
@@ -107,15 +120,26 @@ public class JobServiceImpl implements JobService {
         job.setStatus(jobUpdate.getStatus());
         job.setViews(jobUpdate.getViews());
         job.setDelete(false);
-        
+
+        return jobRepository.save(job);
+
+    }
+
+    @Autowired
+    StatusJobRepository statusJobRepository;
+
+    public Job updateStatus(Long id, Long idStatus) {
+        Job job = jobRepository.findById(id)
+                .orElseThrow(() -> new ResourceAccessException("Không tồn tại công việc này với id: " + id));
+        job.setStatus(statusJobRepository.findById(idStatus).get());
         return jobRepository.save(job);
     }
 
     @Override
     public boolean delete(Long id) {
-        Job job = this.findById(id);
-        if(job == null) return false;
-        job.setDelete(true);
+        Job job = jobRepository.findById(id)
+                .orElseThrow(() -> new ResourceAccessException("Không tồn tại công việc này với id: " + id));
+        jobRepository.delete(job);
         return true;
     }
 }
