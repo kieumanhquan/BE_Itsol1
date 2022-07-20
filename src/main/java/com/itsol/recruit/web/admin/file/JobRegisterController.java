@@ -1,8 +1,7 @@
 package com.itsol.recruit.web.admin.file;
 
 import com.itsol.recruit.dto.JobRegisterDTO;
-import com.itsol.recruit.service.jobregister.JobRegisterService;
-import com.itsol.recruit.web.vm.PageVM;
+import com.itsol.recruit.service.impl.jobregister.JobRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

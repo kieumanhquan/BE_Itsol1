@@ -39,15 +39,15 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         if (alreadySetup) {
             return;
         }
-        if (userRepository.findByUserName("admin") == null) {
+        if (userRepository.findByUserName("admin123") == null) {
             Set<Role> adminRole = roleRepository.findByCode("ROLE_ADMIN");
             User user = new User();
-            user.setUserName("admin");
-            user.setName("admin");
-            user.setEmail("loc119865@nuce.edu.vn");
-            user.setPhoneNumber("0388888888");
+            user.setUserName("admin123");
+            user.setName("admin123");
+            user.setEmail("admin123@nuce.edu.vn");
+            user.setPhoneNumber("0327701174");
             user.setBirthDay(new Date(1999 - 04 - 29));
-            user.setPassword(passwordEncoder.encode("admin1"));
+            user.setPassword(passwordEncoder.encode("admin123@"));
             user.setActive(true);
             user.setDelete(false);
             user.setRoles(adminRole);

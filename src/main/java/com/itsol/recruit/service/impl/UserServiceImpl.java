@@ -12,9 +12,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.nio.file.Path;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -75,7 +78,6 @@ public class UserServiceImpl  implements UserService {
 
     @Override
     public void activeAccount(Long id) {
-
         User user = userRepository.getById(id);
         user.setActive(true);
         userRepository.save(user);
@@ -92,13 +94,38 @@ public class UserServiceImpl  implements UserService {
     }
 
     @Override
-    public User updateUser(User user) {
+    public Page<User> getJE(Pageable pageable) {
+        return null;
+    }
+
+    @Override
+    public User deactive(Long id) {
+        User user = findById(id);
+        if(user.isActive() == true){
+            user.setActive(false);
+        }else {
+            user.setActive(true);
+        }
         return userRepository.save(user);
     }
 
     @Override
-    public List<User> getJE() {
+    public List<User> getContactJE() {
         return userRepository.getJE();
+    }
+
+    public Page<User> getAllJe(int pageNo, int pageSize, String sort , boolean type) {
+        Pageable pageable;
+        if (sort == null) {
+            pageable = PageRequest.of(pageNo, pageSize);
+        } else {
+            if (type) {
+                pageable = PageRequest.of(pageNo, pageSize, Sort.by(sort).ascending());
+            } else {
+                pageable = PageRequest.of(pageNo, pageSize, Sort.by(sort).descending());
+            }
+        }
+        return  userRepository.getJE(pageable);
     }
 
 
