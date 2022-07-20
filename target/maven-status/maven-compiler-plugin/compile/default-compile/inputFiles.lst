@@ -1,117 +1,117 @@
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\JobServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\UserDetailServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\RecruitApplication.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\UserNotActivatedException.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\AcademicLevelRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\JobRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\jwt\JWTFilter.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\ResponseDTO.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\RoleRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\SimpleCORSFilter.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\HiringJobsServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\file\FileDownloadController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\AcademicLevelController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\ChangePassVM.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\file\FileUploadController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\AdminController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Image.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\StatusServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\JobController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\repoext\JobRepositoryExt.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\User.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\RankService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\FileUploadDTO.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\UserRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Job.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\OTPServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\RankController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\JobDTO.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\file\JobRegisterController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\auth\AuthenticateController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\jwt\JWTTokenResponse.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\LoginVM.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\EntityMapper.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\ws\DataHandler.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\JobTypeDTO.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\CompanyIntroEditServiceIml.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\CompanyIntroController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\OTPService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\JobService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\CompanyIntroEditService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\WebConfig.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\SecurityConfig.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\WebSocketConfig.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\JobRegister.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\AuthenticateService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\WorkingFormController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Rank.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\JobPositionRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\JobPositionService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\JobPositionController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Profiles.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\jobregister\UploadFileService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\AuthoritiesConstants.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\HiringJobRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\CompanyIntroRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\UserDTO.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\repoimpl\JobRepositoryImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Type.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\ImgRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\PageVM.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\WorkingFormService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\JobSearchDTO.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\jwt\JWTConfigurer.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\SecurityUtils.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\SetupDataLoader.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\JobPositionServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Role.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\ActiveServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\Hello.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\JobMapper.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\HiringJobsController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\UserMapper.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\WorkingForm.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\UserServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\AcademicLevel.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\EmailServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\JobRegisterDTO.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\StatusJobController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\core\DateTimeConstants.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\JobPosition.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\SearchJobVM.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\core\ApiResponseEntity.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\AcademicLevelServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\WorkingFormRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\StatusJobRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\AuthenticateServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\SwaggerConfiguration.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\core\Constants.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\ProfilesRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\repoext\UserRepositoryExt.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\AcademicLevelService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\OTPRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\StatusJob.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\OTP.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Company.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\RankRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\BaseRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\jwt\TokenProvider.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\StatusJobService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\WorkingFormServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\UserController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\RankServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\UserService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\DetailFileDTO.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\JobRegisterRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\CompanyIntroService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\CompanyIntroServiceImpl.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Notifications.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\EmailService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\AuthenticateRepository.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\StatusJobRegister.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\jobregister\JobRegisterService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\jobregister\DownloadFileService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\AllJobDTO.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\CompanyIntroEditController.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\HiringJobsService.java
-C:\Users\vungo\IT\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\emailRegister\EmailService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\BaseRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\AcademicLevelService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\OTPServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\ChangePassVM.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\ActiveServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\JobServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Rank.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\AuthenticateServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\StatusJobService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\AdminController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\StatusJob.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\ResponseDTO.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\UserServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\JobRegisterRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\AcademicLevelController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\HiringJobRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\OTPRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\JobSearchDTO.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\AcademicLevel.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\SearchJobVM.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\JobPosition.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\SecurityUtils.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\ws\DataHandler.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\HiringJobsService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\core\ApiResponseEntity.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\jwt\JWTTokenResponse.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\CompanyIntroEditController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\AuthenticateRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\WebSocketConfig.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\file\FileUploadController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\UserRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\RoleRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\LoginVM.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Company.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\CompanyIntroServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\HiringJobsServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\RecruitApplication.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\JobMapper.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\file\JobRegisterController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\AuthenticateService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\jobregister\JobRegisterService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\JobPositionRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\UserNotActivatedException.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\OTP.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\UserDTO.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\repoext\UserRepositoryExt.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\StatusJobRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\HiringJobsController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\JobController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\JobRegister.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\jwt\TokenProvider.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\AcademicLevelServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\EntityMapper.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\Hello.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\UserController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\StatusJobRegister.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Type.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Job.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\WorkingFormRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\WebConfig.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\JobService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\RankRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\OTPService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\WorkingFormController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\ImgRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\CompanyIntroController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\AllJobDTO.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\jwt\JWTFilter.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\jobregister\DownloadFileService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\StatusJobController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\EmailServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\jobregister\UploadFileService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\UserMapper.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\repoimpl\JobRepositoryImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\DetailFileDTO.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\SwaggerConfiguration.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Role.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\SetupDataLoader.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\WorkingFormService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\UserDetailServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\SecurityConfig.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\FileUploadDTO.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Image.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\CompanyIntroRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\user\auth\AuthenticateController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\ProfilesRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Notifications.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\JobRegisterDTO.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\config\SimpleCORSFilter.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\JobPositionService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\Profiles.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\CompanyIntroEditServiceIml.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\JobTypeDTO.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\User.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\JobPositionController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\RankServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\JobRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\CompanyIntroService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\core\DateTimeConstants.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\JobPositionServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\emailRegister\EmailService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\file\FileDownloadController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\RankService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\mapper\EmailService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\core\Constants.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\jwt\JWTConfigurer.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\UserService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\admin\RankController.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\AcademicLevelRepository.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\CompanyIntroEditService.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\StatusServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\repository\repoext\JobRepositoryExt.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\web\vm\PageVM.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\entity\WorkingForm.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\service\impl\WorkingFormServiceImpl.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\dto\JobDTO.java
+D:\HOU\Interns\Mock up\nhom_2\BE\BE_Itsol1\src\main\java\com\itsol\recruit\security\AuthoritiesConstants.java

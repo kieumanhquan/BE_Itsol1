@@ -43,6 +43,12 @@ public class JobController {
     public ResponseEntity<Job> findJobById(@PathVariable("id") Long id){
         return  ResponseEntity.ok().body(jobService.findById(id));
     }
+
+    @GetMapping(value = "/job/search")
+    public ResponseEntity<List<Job>> findJobByManyCon(@RequestParam(value = "keyword") String keyword){
+        return ResponseEntity.ok().body(jobService.findJobByManyCon(keyword));
+    }
+
     @PostMapping(value = "/job/insert")
     public ResponseEntity<Job> insertJob(@RequestBody JobDTO jobDTO) {
         return ResponseEntity.ok().body(jobService.insert(jobDTO));
@@ -51,6 +57,11 @@ public class JobController {
     @PutMapping(value = "/job/update/{id}")
     public ResponseEntity<Job> updateJob(@PathVariable Long id, @RequestBody Job job) {
         return ResponseEntity.ok().body(jobService.update(id, job));
+    }
+
+    @PutMapping(value = "/job/updateStatus")
+    public ResponseEntity<Job> updateStatusJob(@RequestParam(value = "id") Long id, @RequestParam(value = "idStatus") Long idStatus) {
+        return ResponseEntity.ok().body(jobService.updateStatus(id,idStatus));
     }
 
     @DeleteMapping(value = "/job/delete/{id}")

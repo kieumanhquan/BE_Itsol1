@@ -109,10 +109,10 @@ public class UserServiceImpl  implements UserService {
         return userRepository.save(user);
     }
 
-//    @Override
-//    public List<User> getJE() {
-//        return userRepository.getJE();
-//    }
+    @Override
+    public List<User> getContactJE() {
+        return userRepository.getJE();
+    }
 
     public Page<User> getAllJe(int pageNo, int pageSize, String sort) {
         Pageable pageable;
