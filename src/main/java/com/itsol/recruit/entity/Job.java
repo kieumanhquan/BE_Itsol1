@@ -1,10 +1,7 @@
 package com.itsol.recruit.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Type;
 
@@ -51,11 +48,11 @@ public class Job {
     @Column(name = "qty_person")
     Long qtyPerson;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "start_recruitment_date")
     Date startRecruitmentDate ;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "due_date")
     Date dueDate;
 
@@ -85,7 +82,7 @@ public class Job {
     @JoinColumn(name = "create_id")
     User create;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "create_date")
     Date createDate ;
 
@@ -93,7 +90,7 @@ public class Job {
     @JoinColumn(name = "update_id")
     User update;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "update_date")
     Date updateDate ;
 
@@ -105,6 +102,5 @@ public class Job {
     Long views;
 
     @Column(name = "isDelete ")
-    @Type(type = "org.hibernate.type.NumericBooleanType")
     boolean isDelete ;
 }

@@ -90,6 +90,7 @@ com\itsol\recruit\security\jwt\TokenProvider.class
 com\itsol\recruit\service\impl\HiringJobsServiceImpl.class
 com\itsol\recruit\security\AuthoritiesConstants.class
 com\itsol\recruit\config\WebSocketConfig.class
+com\itsol\recruit\repository\ImgRepository.class
 com\itsol\recruit\repository\repoext\JobRepositoryExt.class
 com\itsol\recruit\repository\CompanyIntroRepository.class
 com\itsol\recruit\service\JobService.class
