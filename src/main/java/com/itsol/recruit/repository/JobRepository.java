@@ -18,8 +18,8 @@ public interface JobRepository extends JpaRepository<Job, Long>, JobRepositoryEx
     @Query("select j from job j")
     Page<Job> findJobPage(Pageable pageable);
 
-    Job findJobByName(String name);
-
+//    Job findJobByName(String name);
+    Job findJobById(Long id);
     @Query("select j from job j where j.salaryMin <= ?2 and j.salaryMax >=?1")
     List<Job> findJobsBySalaryMaxAndsAndSalaryMax(Long salaryMax, Long salaryMin);
 

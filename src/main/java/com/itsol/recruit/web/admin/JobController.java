@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.jar.JarOutputStream;
 
 @RestController
 @RequestMapping(value = Constants.Api.Path.PUBLIC)
@@ -40,7 +41,7 @@ public class JobController {
         return ResponseEntity.ok().body(page.getContent());
     }
     @GetMapping(value = "/job/{id}")
-    public ResponseEntity<Job> findJobById(@PathVariable("id") Long id){
+    public ResponseEntity<?> findJobById(@PathVariable("id") Long id){
         return  ResponseEntity.ok().body(jobService.findById(id));
     }
 

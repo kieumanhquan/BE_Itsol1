@@ -12,7 +12,7 @@ public interface JobService {
 
     public Job findById(Long id);
 
-    public Job findJobByName(String name);
+//    public Job findJobByName(String name);
 
     public List<Job> findJobByManyCon(String keyword);
 
