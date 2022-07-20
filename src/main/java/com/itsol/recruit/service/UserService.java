@@ -34,6 +34,7 @@ public interface UserService{
 
     Page<User> getJE(Pageable pageable);
 
+    List<User> getContactJE();
 
     User deactive(Long id);
 }

@@ -1,5 +1,6 @@
 package com.itsol.recruit.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.experimental.FieldDefaults;
@@ -28,14 +29,14 @@ public class Company  implements Serializable {
     String email;
 
     @Column(name = "hotline")
-    String hoteline;
-
+    String hotline;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "date_incoporation")
     Date date_incoporation;
 
     @Column(name = "tax_code")
     String tax_code;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "tax_date")
     Date tax_date;
 
